@@ -1,7 +1,8 @@
+<div interval="5000">
 <ngb-carousel *ngIf="images">
     <ng-template ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img [src]="images[0]" alt="Random first slide">
+      <div class="picsum-img-slidder">
+        <img [src]="images[0]" alt="Random first slide" class="picsum-img-wrapper1">
       </div>
       <div class="carousel-caption">
         <h3>First slide label</h3>
@@ -27,3 +28,4 @@
       </div>
     </ng-template>
   </ngb-carousel>
+</div>

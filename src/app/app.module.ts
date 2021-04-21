@@ -6,19 +6,25 @@ import { AppComponent } from './app.component';
 import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { HomeComponent } from './shared/home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule,
     TranslateModule.forRoot({
       loader:{
         provide:TranslateLoader,

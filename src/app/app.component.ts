@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',

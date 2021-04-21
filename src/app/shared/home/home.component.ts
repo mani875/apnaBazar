@@ -1,6 +1,9 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/core/services/product/product.service';
+import { Product } from 'src/app/core/models';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +11,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  product: any;
+  constructor(private productService: ProductService) { }
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
-  ngOnInit(): void {
-  }
+  
+    ngOnInit() {
+     this.productService.getCrouselProduct().subscribe(data=>{
+      this.product=data;
+      });
+
+    }
+
 
 }

@@ -1,8 +1,20 @@
 <div interval="5000">
-<ngb-carousel *ngIf="images">
-    <ng-template ngbSlide>
-      <div class="picsum-img-slidder">
-        <img [src]="images[0]" alt="Random first slide" class="picsum-img-wrapper1">
+<ngb-carousel>
+
+    <ng-template ngbSlide *ngFor="let product of product">   
+        <div class="picsum-img-wrapper" >
+            <img src="{{product.imageUrl}}" alt="Random first slide" class="picsum-img-slidder">
+          </div>
+          <div class="carousel-caption">
+            <h3>{{product.name}}</h3>
+            <p>{{product.description}}</p>
+          </div>
+    
+</ng-template>
+
+    <!-- <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[0]" alt="Random first slide" class="picsum-img-slidder">
       </div>
       <div class="carousel-caption">
         <h3>First slide label</h3>
@@ -26,6 +38,6 @@
         <h3>Third slide label</h3>
         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
       </div>
-    </ng-template>
+    </ng-template> -->
   </ngb-carousel>
 </div>

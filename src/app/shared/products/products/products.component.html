@@ -12,26 +12,69 @@
     </button>
 
     
-    <table class="card " >
+    <table class="card" >
       
       <tr class="card-body " *ngFor="let product of grid"> 
         <div class="product-grid" >
-        <td *ngFor="let i of product" class="product-grid">
-              
+        <td *ngFor="let i of product" >
+              <div class="product-image ">
                                        <div class="product-image">
                                        <a href="#" class="image">
-                                          <img class="pic-1" src="{{i.imageUrl}}">   
+                                          <img class="pic-1 table_custom" src="{{i.imageUrl}}">   
                                        </a>
                                           <ul class="product-links">       
-                                              <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>                                          
+                                              <li><a ([addToCartProduct])='i' (click)="open(content)"><i class="fas fa-shopping-cart"></i></a></li>                                          
                                           </ul>
                                        </div>
-                                       <div class="product-content">
-                                       <h3 class="title">{{i.name}}</h3>
-                                       <h3 class="title">{{i.description}}</h3>
-                                       <div class="price">{{i.price  | currency:'INR'}}</div>
+                                       <ng-template #content let-modal>
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" 
+                                                id="modal-basic-title">
+                                                ADD TO CART 
+                                            </h4>
+                                            <button type="button" class="close"
+                                                    aria-label="Close" (click)=
+                                                    "modal.dismiss('Cross click')">
+                                      
+                                                <span aria-hidden="true">
+                                                    close
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="dateOfBirth">
+                                                     
+                                                    </label>
+                                                    <h4 class="popup-heading">{{i.category}}</h4>
+                                                    <div class="input-group">
+                                                      
+                                                       <img src="{{i.imageUrl}}" class="image_popup"> 
+                                                    <span class="popup-content"> 
+                                                     <b>Code</b>        : {{i.id}}<br>
+                                                     <b>Price</b>       : {{i.price | currency:'INR' }} <br>
+                                                     <b>Name</b>        : {{i.name}}<br>
+                                                     <b>Description</b> :  {{i.description}} </span>                                                 
+                                                     
+                                                    </div>
+                                                            </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" 
+                                                class="btn btn-outline-dark" 
+                                                (click)="modal.close('Save click')">
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                      </ng-template>
                          </div>
-               
+                         <div class="product-content">
+                          <h3 class="title">{{i.name}}</h3>
+                          <h3 class="title">{{i.description}}</h3>
+                          <div class="price">{{i.price  | currency:'INR'}}</div>
+                        </div>      
         </td>
         
   </div>

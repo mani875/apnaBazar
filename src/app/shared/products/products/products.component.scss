@@ -199,3 +199,20 @@ box-shadow: 0 2px #666;
     display: grid;
     grid-template-columns: 1fr 1fr; /* Create 2 columns and auto-place rows */
   }
+  .table_custom{
+      padding-left: 50px;
+      width: 100%;
+  }
+  .image_popup{
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  }
+  .popup-content{
+    font-family: auto;
+  }
+  .popup-heading{
+  font-family: auto;
+    text-align: center;
+  }

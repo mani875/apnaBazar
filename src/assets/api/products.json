@@ -1,11 +1,19 @@
 [
     {
         "id": "109745",
-        "name": "heelllo",
+        "name": "Zara White Tshirt",
         "price": "100",
-        "description": "heelllo",
+        "description": "Color White Men Round Collar Shirt",
         "imageUrl": "/assets/images/productImages/cloth_1.jpeg",
-        "category":""
+        "category":"Men's Fashion"
+    },
+    {
+        "id": "909745",
+        "name": "Silver Gown",
+        "price": "90900",
+        "description": "Aza Fashion's Designer Collection offers a wide range of silver gown online",
+        "imageUrl": "/assets/images/productImages/women_1.jpg",
+        "category":"Women's Fashion"
     },
     {
         "id": "109746",
@@ -58,9 +66,9 @@
     {
         "id": "209745",
         "name": "heelllo",
-        "price": "heelllo",
+        "price": "100",
         "description": "heelllo",
-        "imageUrl": "heelllo",
+        "imageUrl": "/assets/images/productImages/foot_3.jpg",
         "category":""
     },
     {
@@ -68,7 +76,7 @@
         "name": "heelllo",
         "price": "9000",
         "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/foot_3.jpg",
+        "imageUrl": "/assets/images/productImages/foot_4.jpg",
         "category":""
     },
     {
@@ -76,7 +84,7 @@
         "name": "heelllo",
         "price": "9000",
         "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/foot_4.jpg",
+        "imageUrl": "/assets/images/productImages/makeup_1.jpg",
         "category":""
     },
     {
@@ -84,7 +92,7 @@
         "name": "heelllo",
         "price": "8000",
         "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/makeup_1.jpg",
+        "imageUrl": "/assets/images/productImages/makeup_2.jpg",
         "category":""
     },
     {
@@ -92,7 +100,7 @@
         "name": "heelllo",
         "price": "909",
         "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/makeup_2.jpg",
+        "imageUrl": "/assets/images/productImages/makeup_3.jpg",
         "category":""
     }
   ]

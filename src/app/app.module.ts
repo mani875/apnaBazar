@@ -11,6 +11,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './shared/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { ProductsComponent } from './shared/products/products/products.component';
+import { SidebarModule } from 'ng-sidebar';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    SidebarModule.forRoot(),
     TranslateModule.forRoot({
       loader:{
         provide:TranslateLoader,

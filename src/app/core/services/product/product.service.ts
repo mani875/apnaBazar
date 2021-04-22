@@ -9,13 +9,16 @@ import { Product } from '../../models';
 export class ProductService {
 
   constructor(private readonly http: HttpClient) { }
-  private CROUSEL_PRODUCTS = "/assets/api";
+  private PRODUCTS = "/assets/api";
 
   public getCrouselProduct():Observable<Product[]>{
-    const url = `${this.CROUSEL_PRODUCTS}/crouselProduct.json`;
-    console.log("in service");
-    console.log(url);
-    console.log(this.http.get<Product[]>(url));
+    const url = `${this.PRODUCTS}/crouselProduct.json`;
+
+    return this.http.get<Product[]>(url);
+  }
+
+  public getProducts():Observable<Product[]>{
+    const url = `${this.PRODUCTS}/products.json`;
     return this.http.get<Product[]>(url);
   }
 }

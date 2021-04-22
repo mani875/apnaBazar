@@ -2,57 +2,57 @@
     {
         "id": "109745",
         "name": "heelllo",
-        "price": "heelllo",
+        "price": "100",
         "description": "heelllo",
-        "imageUrl": "heelllo",
+        "imageUrl": "/assets/images/productImages/cloth_1.jpeg",
         "category":""
     },
     {
         "id": "109746",
         "name": "heelllo",
-        "price": "heelllo",
+        "price": "200",
         "description": "heelllo",
-        "imageUrl": "heelllo",
+        "imageUrl": "/assets/images/productImages/cloth_2.jpeg",
         "category":""
     },
     {
         "id": "109747",
         "name": "heelllo",
-        "price": "heelllo",
+        "price": "300",
         "description": "heelllo",
-        "imageUrl": "heelllo",
+        "imageUrl": "/assets/images/productImages/cloth_3.jpeg",
         "category":""
     },
     {
         "id": "109748",
         "name": "heelllo",
-        "price": "heelllo",
+        "price": "400",
         "description": "heelllo",
-        "imageUrl": "heelllo",
+        "imageUrl": "/assets/images/productImages/cloth_4.jpeg",
         "category":""
     },
     {
         "id": "109749",
         "name": "heelllo",
-        "price": "heelllo",
+        "price": "700",
         "description": "heelllo",
-        "imageUrl": "heelllo",
+        "imageUrl": "/assets/images/productImages/cloth_5.jpeg",
         "category":""
     },
     {
         "id": "109750",
         "name": "heelllo",
-        "price": "heelllo",
+        "price": "2000",
         "description": "heelllo",
-        "imageUrl": "heelllo",
+        "imageUrl": "/assets/images/productImages/foot_1.jpg",
         "category":""
     },
     {
         "id": "109751",
         "name": "heelllo",
-        "price": "heelllo",
+        "price": "1000",
         "description": "heelllo",
-        "imageUrl": "heelllo",
+        "imageUrl": "/assets/images/productImages/foot_2.jpg",
         "category":""
     },
     {
@@ -66,33 +66,33 @@
     {
         "id": "209741",
         "name": "heelllo",
-        "price": "heelllo",
+        "price": "9000",
         "description": "heelllo",
-        "imageUrl": "heelllo",
+        "imageUrl": "/assets/images/productImages/foot_3.jpg",
         "category":""
     },
     {
         "id": "209748",
         "name": "heelllo",
-        "price": "heelllo",
+        "price": "9000",
         "description": "heelllo",
-        "imageUrl": "heelllo",
+        "imageUrl": "/assets/images/productImages/foot_4.jpg",
         "category":""
     },
     {
         "id": "409745",
         "name": "heelllo",
-        "price": "heelllo",
+        "price": "8000",
         "description": "heelllo",
-        "imageUrl": "heelllo",
+        "imageUrl": "/assets/images/productImages/makeup_1.jpg",
         "category":""
     },
     {
         "id": "909745",
         "name": "heelllo",
-        "price": "heelllo",
+        "price": "909",
         "description": "heelllo",
-        "imageUrl": "heelllo",
+        "imageUrl": "/assets/images/productImages/makeup_2.jpg",
         "category":""
     }
   ]

@@ -11,9 +11,10 @@ import { ProductService } from 'src/app/core/services/product/product.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CrouselProductResolver implements Resolve<Product[]> {
+
+export class ProductResolver implements Resolve<Product[]> {
   constructor(private productService: ProductService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Product[]> {
-    return this.productService.getCrouselProduct();
+    return this.productService.getProducts();
   }
 }

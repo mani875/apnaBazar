@@ -1,9 +1,9 @@
-import { Product } from '.';
+import { ProductEntry } from './productEntryModel';
 
 export interface Cart {
     code: string;
     userName:string;
     address: string;
-    product:Product[];
+    productEntry:ProductEntry[];
   }
   

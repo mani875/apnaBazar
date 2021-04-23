@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:'home', component:HomeComponent,resolve:{
     productList: CrouselProductResolver
   }},
-  {path:'cart/:productCode',component:CartComponent},
+  {path:'cart',component:CartComponent},
   {path:'products',component:ProductsComponent,resolve:{
     productList: ProductResolver
   }},

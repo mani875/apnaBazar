@@ -3,8 +3,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ActivatedRoute , Router} from '@angular/router';
 import { Product } from 'src/app/core/models';
 import { NgbModal , ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { ProductEntry } from 'src/app/core/models/productEntryModel';
 import { Cart } from 'src/app/core/models/cartModel';
-import { CartComponent } from 'src/app/components/cart/cart.component';
 
 
 @Component({
@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit {
   // closeResult:Product ;
   cartProduct:Product[];
   cart:Cart;
+  productEntries:ProductEntry;
   gridLayout=[1,2,3];
   num:any=[];
 grid:any=[];
@@ -27,9 +28,13 @@ grid:any=[];
       code: "",
      userName:"",
      address: "",
-     product:[]
+     productEntry:[]
     };
    }
+   this.productEntries={
+     product:null,
+     quantity:0
+   };
     
    }
  
@@ -56,10 +61,11 @@ grid:any=[];
         if(localStorage.getItem('cart')){
           this.cart=JSON.parse(localStorage.getItem('cart'));
         }
-        this.cart.product.push(product);
+        this.productEntries.product=product;
+        this.productEntries.quantity+=1;        
+        this.cart.productEntry.push(this.productEntries);
         localStorage.setItem('cart',JSON.stringify(this.cart));
-        this.router.navigateByUrl('/cart/120');
-        // this.router.navigateByUrl('/cart');
+        this.router.navigateByUrl('/cart');
       }, (reason) => {
      console.log("hello");
       });

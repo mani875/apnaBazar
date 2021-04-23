@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, ParamMap } from '@angular/router'
 import { filter, map, mergeMap } from 'rxjs/operators'
 import { Cart } from 'src/app/core/models/cartModel';
-import { Product } from 'src/app/core/models';
+import { ProductEntry } from 'src/app/core/models/productEntryModel';
 
 @Component({
   selector: 'app-cart',
@@ -12,32 +12,34 @@ import { Product } from 'src/app/core/models';
 export class CartComponent implements OnInit {
 productCode:string;
 cart:Cart;
-product:Product[];
-  constructor(private readonly router: Router,private route: ActivatedRoute) { 
-    
-      
+num:number;
+price:number;
+
+product:ProductEntry[];
+childEntry:ProductEntry;
+  constructor(private readonly router: Router,private route: ActivatedRoute) {     
   }
 
   ngOnInit(): void {
-    
-      console.log("product hhhhhhu");
-      this.cart= JSON.parse(localStorage.getItem('cart'));
-      this.product=this.cart.product;
-      console.log(this.cart.product.length);
-      // this.route.paramMap.subscribe((params : ParamMap)=>{
-      // this.productCode=  params.get('productCode'); 
-      
-      // this.route.data.subscribe(data => {
-      //   console.log(data);
-      // })
-      // })
-        
-        
-       
-        
-     
-  
-    
-  }
 
+      this.cart= JSON.parse(localStorage.getItem('cart'));
+       this.product=this.cart.productEntry;
+       
+  }
+  subtract(child,i){
+    this.num=i;
+this.childEntry=child;
+this.childEntry.quantity-=1;
+if(this.childEntry.quantity===0){
+  this.delete(this.num);
+}
+  }
+  add(child){
+    this.childEntry=child;
+    this.childEntry.quantity+=1;
+      }
+delete(i){
+  this.product.splice(i,1);
+  localStorage.setItem('cart',JSON.stringify(this.cart));
+}
 }

@@ -151,7 +151,9 @@ box-shadow: 0 2px #666;
     display: block;
     transition: all 0.3s ease 0s;
 }
-.product-grid:hover .product-links li a:hover{ background: #333; }
+.product-grid:hover .product-links li a:hover{ 
+    background: #333;
+ }
 .product-grid .product-content{
     text-align: left;
     padding: 15px 0 0;

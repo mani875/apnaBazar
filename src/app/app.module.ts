@@ -13,6 +13,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { ProductsComponent } from './shared/products/products/products.component';
 import { SidebarModule } from 'ng-sidebar';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,15 @@ import { SidebarModule } from 'ng-sidebar';
     FooterComponent,
     HomeComponent,
     NotFoundComponent,
-    ProductsComponent
+    ProductsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    MDBBootstrapModule.forRoot(),
     SidebarModule.forRoot(),
     TranslateModule.forRoot({
       loader:{

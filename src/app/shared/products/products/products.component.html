@@ -7,8 +7,8 @@
     <!-- <button  (click)="_toggleSidebar()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button> -->
-    <button class="navbar-toggler" (click)="_toggleSidebar()" type="button">
-      <span class="navbar-custom">Filters</span>
+    <button class="navbar-toggler fas icon" (click)="_toggleSidebar()" type="button">
+      <span class="navbar-custom fas icon">Filters</span>
     </button>
 
     
@@ -22,8 +22,8 @@
                                        <a href="#" class="image">
                                           <img class="pic-1 table_custom" src="{{i.imageUrl}}">   
                                        </a>
-                                          <ul class="product-links">       
-                                              <li><a ([addToCartProduct])='i' (click)="open(content)"><i class="fas fa-shopping-cart"></i></a></li>                                          
+                                          <ul class="product-links bi bi-cart">       
+                                              <li class="bi bi-cart"><a ([addToCartProduct])='i' (click)="open(content)"><i class="fas fa-shopping-cart"></i></a></li>                                          
                                           </ul>
                                        </div>
                                        <ng-template #content let-modal>
@@ -64,7 +64,7 @@
                                         <div class="modal-footer">
                                             <button type="button" 
                                                 class="btn btn-outline-dark" 
-                                                (click)="modal.close('Save click')">
+                                                (click)="modal.close(i)">
                                                 Add to Cart
                                             </button>
                                         </div>

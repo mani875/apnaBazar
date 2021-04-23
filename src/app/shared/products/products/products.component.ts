@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute , Router} from '@angular/router';
 import { Product } from 'src/app/core/models';
 import { NgbModal , ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Cart } from 'src/app/core/models/cartModel';
+import { CartComponent } from 'src/app/components/cart/cart.component';
 
 
 @Component({
@@ -11,14 +13,26 @@ import { NgbModal , ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-
-  constructor(private readonly route: ActivatedRoute,private modalService: NgbModal) { }
   product: Product;
   addToCartProduct:Product;
-  closeResult = '';
+  // closeResult:Product ;
+  cartProduct:Product[];
+  cart:Cart;
   gridLayout=[1,2,3];
   num:any=[];
 grid:any=[];
+  constructor(private readonly route: ActivatedRoute,private modalService: NgbModal, private readonly router: Router) {
+   if(!localStorage.getItem('cart')){
+    this.cart={
+      code: "",
+     userName:"",
+     address: "",
+     product:[]
+    };
+   }
+    
+   }
+ 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
       this.product = data.productList;
@@ -34,19 +48,20 @@ grid:any=[];
     })
   }
   
-  public _opened: boolean = false;
-
-  public _toggleSidebar() {
-    this._opened = !this._opened;}
-    
+ 
     open(content) {
       this.modalService.open(content,
-     {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-        this.closeResult = `Closed with: ${result}`;
-        this.addToCartProduct=this.addToCartProduct;
+     {ariaLabelledBy: 'modal-basic-title'}).result.then((product) => {
+        // this.closeResult = product;
+        if(localStorage.getItem('cart')){
+          this.cart=JSON.parse(localStorage.getItem('cart'));
+        }
+        this.cart.product.push(product);
+        localStorage.setItem('cart',JSON.stringify(this.cart));
+        this.router.navigateByUrl('/cart/120');
+        // this.router.navigateByUrl('/cart');
       }, (reason) => {
-        this.closeResult = 
-           `Dismissed ${this.getDismissReason(reason)}`;
+     console.log("hello");
       });
     }
     
@@ -59,6 +74,10 @@ grid:any=[];
         return `with: ${reason}`;
       }
     }
+    public _opened: boolean = false;
+
+    public _toggleSidebar() {
+      this._opened = !this._opened;}
 }
 
 

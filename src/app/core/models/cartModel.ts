@@ -1,8 +1,9 @@
-export interface cart {
+import { Product } from '.';
+
+export interface Cart {
     code: string;
     userName:string;
     address: string;
-    user:any;
-    cartEntry:any;
+    product:Product[];
   }
   

@@ -1,7 +1,7 @@
+import { Product } from '.';
 
-export interface productEntry {
-    id: string;
-    product:any;
+export interface ProductEntry {
+    product:Product;
     quantity:number;
   }
   

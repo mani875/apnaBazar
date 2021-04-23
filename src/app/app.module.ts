@@ -15,6 +15,7 @@ import { ProductsComponent } from './shared/products/products/products.component
 import { SidebarModule } from 'ng-sidebar';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CartComponent } from './components/cart/cart.component';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,8 @@ import { CartComponent } from './components/cart/cart.component';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
     SidebarModule.forRoot(),
     TranslateModule.forRoot({

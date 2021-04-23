@@ -31,176 +31,136 @@
           <div class="card">
 
             <!--Card content-->
-            <form class="card-body">
+            <form class="card-body cursor" (ngSubmit)="open(content)" [formGroup]="userForm">
+              <div class="form-group">
+                <label>Enter Full Name</label>
+                <input
+                class="form-control"
+                id="txtName"
+                type="text"
+                placeholder="Enter Full Name"
+                formControlName="name"
+                [ngClass]="{
+                  'is-invalid':
+                    (userForm.get('name').touched || userForm.get('name').dirty) &&
+                    !userForm.get('name').valid
+                }"
+              />
+              <span class="invalid-feedback">
+                <span *ngIf="userForm.get('name').errors?.required">
+                  Please enter your Name.
+                </span>
+              </span>
 
-              <!--Grid row-->
-              <div class="row">
+            </div> 
+                <div class="form-group">
+                <label>Email</label>
+                <input
+                class="form-control"
+                id="txtName"
+                type="text"
+                placeholder="Enter Email"
+                formControlName="email"
+                [ngClass]="{
+                  'is-invalid':
+                    (userForm.get('email').touched || userForm.get('email').dirty) &&
+                    !userForm.get('email').valid
+                }"
+              />
+              <span class="invalid-feedback">
+                <span *ngIf="userForm.get('email').errors?.required">
+                  Please enter your email.
+                </span>
+                <span *ngIf="userForm.get('email').errors?.pattern">
+                 please enter correct email.(abc@example.com)
+                </span>
+              </span>
 
-                <!--Grid column-->
-                <div class="col-md-6 mb-2">
+            </div> 
+            <div class="form-group">
+              <label>Shipping Address</label>
+              <input
+              class="form-control"
+              id="txtName"
+              type="text"
+              placeholder="Enter Shipping Address"
+              formControlName="address"
+              [ngClass]="{
+                'is-invalid':
+                  (userForm.get('address').touched || userForm.get('address').dirty) &&
+                  !userForm.get('address').valid
+              }"
+            />
+            <span class="invalid-feedback">
+              <span *ngIf="userForm.get('address').errors?.required">
+                Please enter your address.
+              </span>
+              <span *ngIf="userForm.get('address').errors?.minlength">
+               Not less than 10 characters.
+              </span>
+            </span>
 
-                  <!--firstName-->
-                  <div class="md-form ">
-                    <input type="text" id="firstName" class="form-control">
-                    <label for="firstName" class="">First name</label>
-                  </div>
+          </div> 
+          <div class="form-group">
+            <label>Postal Code</label>
+            <input
+            class="form-control"
+            id="txtName"
+            type="text"
+            placeholder="Enter Postal Code"
+            formControlName="postalCode"
+            [ngClass]="{
+              'is-invalid':
+                (userForm.get('postalCode').touched || userForm.get('postalCode').dirty) &&
+                !userForm.get('postalCode').valid
+            }"
+          />
+          <span class="invalid-feedback">
+            <span *ngIf="userForm.get('postalCode').errors?.required">
+              Please enter your Postal Address.
+            </span>
+            <span *ngIf="userForm.get('postalCode').errors?.minlength">
+              Enter correct Postal addrss of 6 numbers(eg. 110192)
+             </span>
+            
+          </span>
 
-                </div>
-                <!--Grid column-->
+        </div> 
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input
+          class="form-control"
+          id="txtName"
+          type="text"
+          placeholder="Enter Phone Number"
+          formControlName="phone"
+          [ngClass]="{
+            'is-invalid':
+              (userForm.get('phone').touched || userForm.get('phone').dirty) &&
+              !userForm.get('phone').valid
+          }"
+        />
+        <span class="invalid-feedback">
+          <span *ngIf="userForm.get('phone').errors?.required">
+            Please enter your Phone Number.
+          </span>
+          <span *ngIf="userForm.get('phone').errors?.minlength">
+           please enter correct Phone Number.(Phone no. should be 10 digits)
+          </span>
+        </span>
 
-                <!--Grid column-->
-                <div class="col-md-6 mb-2">
-
-                  <!--lastName-->
-                  <div class="md-form">
-                    <input type="text" id="lastName" class="form-control">
-                    <label for="lastName" class="">Last name</label>
-                  </div>
-
-                </div>
-                <!--Grid column-->
-
-              </div>
-              <!--Grid row-->
-
-              <!--Username-->
-              <div class="md-form input-group pl-0 mb-5">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">@</span>
-                </div>
-                <input type="text" class="form-control py-0" placeholder="Username" aria-describedby="basic-addon1">
-              </div>
-
-              <!--email-->
-              <div class="md-form mb-5">
-                <input type="text" id="email" class="form-control" placeholder="youremail@example.com">
-                <label for="email" class="">Email (optional)</label>
-              </div>
-
-              <!--address-->
-              <div class="md-form mb-5">
-                <input type="text" id="address" class="form-control" placeholder="1234 Main St">
-                <label for="address" class="">Address</label>
-              </div>
-
-              <!--address-2-->
-              <div class="md-form mb-5">
-                <input type="text" id="address-2" class="form-control" placeholder="Apartment or suite">
-                <label for="address-2" class="">Address 2 (optional)</label>
-              </div>
-
-              <!--Grid row-->
-              <div class="row">
-
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-12 mb-4">
-
-                  <label for="country">Country</label>
-                  <select class="custom-select d-block w-100" id="country" required>
-                    <option value="">Choose...</option>
-                    <option>United States</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Please select a valid country.
-                  </div>
-
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-6 mb-4">
-
-                  <label for="state">State</label>
-                  <select class="custom-select d-block w-100" id="state" required>
-                    <option value="">Choose...</option>
-                    <option>California</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Please provide a valid state.
-                  </div>
-
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-6 mb-4">
-
-                  <label for="zip">Zip</label>
-                  <input type="text" class="form-control" id="zip" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Zip code required.
-                  </div>
-
-                </div>
-                <!--Grid column-->
-
-              </div>
-              <!--Grid row-->
-
-              <hr>
-
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="same-address">
-                <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-              </div>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="save-info">
-                <label class="custom-control-label" for="save-info">Save this information for next time</label>
-              </div>
-
-              <hr>
-
-              <div class="d-block my-3">
-                <div class="custom-control custom-radio">
-                  <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
-                  <label class="custom-control-label" for="credit">Credit card</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
-                  <label class="custom-control-label" for="debit">Debit card</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                  <label class="custom-control-label" for="paypal">Paypal</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 mb-3">
-                  <label for="cc-name">Name on card</label>
-                  <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                  <small class="text-muted">Full name as displayed on card</small>
-                  <div class="invalid-feedback">
-                    Name on card is required
-                  </div>
-                </div>
-                <div class="col-md-6 mb-3">
-                  <label for="cc-number">Credit card number</label>
-                  <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Credit card number is required
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-3 mb-3">
-                  <label for="cc-expiration">Expiration</label>
-                  <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Expiration date required
-                  </div>
-                </div>
-                <div class="col-md-3 mb-3">
-                  <label for="cc-expiration">CVV</label>
-                  <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Security code required
-                  </div>
-                </div>
-              </div>
-              <hr class="mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
-
+      </div> 
+        <hr class="mb-4">
+        <button  type="submit"  [disabled]="!userForm.valid" class="submit-button" >
+        Confirm To Checkout
+      </button>
             </form>
+
+              <!--Grid row-->
+               
+             
+              
+            <!-- </form> -->
 
           </div>
           <!--/.Card-->
@@ -240,4 +200,21 @@
   </main>
   <!--Main layout-->
 
- 
+  <ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" 
+            id="modal-basic-title">
+            Congratulations!
+        </h4>
+    </div>
+    <div class="modal-body">
+      You have Successfully placed your Order.
+    </div>
+    <div class="modal-footer">
+        <button type="button" 
+            class="btn btn-outline-dark" 
+            (click)="modal.close()">
+            Back to HomePage
+        </button>
+    </div>
+  </ng-template>

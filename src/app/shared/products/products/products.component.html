@@ -10,20 +10,19 @@
     <button class="navbar-toggler fas icon" (click)="_toggleSidebar()" type="button">
       <span class="navbar-custom fas icon">Filters</span>
     </button>
-
     
-    <table class="card" >
-      
-      <tr class="card-body " *ngFor="let product of grid"> 
-        <div class="product-grid" >
-        <td *ngFor="let i of product" >
+    
+      <div class="row">
+      <div class="col-md-2" *ngFor="let i of product"> 
+        <div class="product-grid " >
+        <div  >
               <div class="product-image ">
                                        <div class="product-image">
                                        <a href="#" class="image">
                                           <img class="pic-1 table_custom" src="{{i.imageUrl}}">   
                                        </a>
                                           <ul class="product-links bi bi-cart">       
-                                              <li class="bi bi-cart"><a ([addToCartProduct])='i' (click)="open(content)"><i class="fas fa-shopping-cart"></i></a></li>                                          
+                                              <li class="bi bi-cart"><a ([addToCartProduct])='i' (click)="open(content)">ADD<i class="fas fa-shopping-cart"></i></a></li>                                          
                                           </ul>
                                        </div>
                                        <ng-template #content let-modal>
@@ -44,7 +43,9 @@
                                         <div class="modal-body">
                                             <form>
                                                 <div class="form-group">
-                                                    
+                                                    <label for="dateOfBirth">
+                                                     
+                                                    </label>
                                                     <h4 class="popup-heading">{{i.category}}</h4>
                                                     <div class="input-group">
                                                       
@@ -73,15 +74,15 @@
                           <h3 class="title">{{i.description}}</h3>
                           <div class="price">{{i.price  | currency:'INR'}}</div>
                         </div>      
-        </td>
+      
         
   </div>
-        </tr>
+</div>
 
 
 
 
-      </table>
+     
 
 </div>
 <div></div>
@@ -94,4 +95,4 @@
   </ng-sidebar>
   
  
-</ng-sidebar-container>
+

@@ -42,15 +42,15 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.route.data.subscribe(data => {
       this.product = data.productList;
-      for(let i=1;i<=data.productList.length;i++){
-        if(i%4 !=0){
-        this.num.push(data.productList[i-1]);
-        }
-        else{
-       this.grid.push(this.num);
-        this.num = [];
-        }
-        }
+      // for(let i=1;i<=data.productList.length;i++){
+      //   if(i%4 !=0){
+      //   this.num.push(data.productList[i-1]);
+      //   }
+      //   else{
+      //  this.grid.push(this.num);
+      //   this.num = [];
+      //   }
+      //   }
     })
   }
   

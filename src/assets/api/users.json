@@ -1,0 +1,18 @@
+[{
+    "userName": "Maninder",
+    "password": "Nagp@123",
+    "level": "platinum",
+    "name":"Maninder Singh"
+},
+{
+    "userName": "nagp",
+    "password": "Nagp@123",
+    "level": "Diamond",
+    "name":"NAGP USER"
+},
+{
+    "userName": "Deepak",
+    "password": "Nagp@123",
+    "level": "silver",
+    "name":"Deepak Bisht"
+}]

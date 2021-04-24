@@ -19,7 +19,10 @@ export class ProductsComponent implements OnInit {
   productEntries:ProductEntry;
   gridLayout=[1,2,3];
   num:any=[];
-grid:any=[];
+  grid:any=[];
+  existing:Boolean=false;
+
+
   constructor(private readonly route: ActivatedRoute,private modalService: NgbModal, private readonly router: Router) {
    if(!localStorage.getItem('cart')){
     this.cart={
@@ -53,22 +56,39 @@ grid:any=[];
   
  
     open(content) {
+     if(!localStorage.getItem("userHeader")){
+      this.router.navigateByUrl('/login');
+     }
+     else{
       this.modalService.open(content,
      {ariaLabelledBy: 'modal-basic-title'}).result.then((product) => {
         // this.closeResult = product;
+
         if(localStorage.getItem('cart')){
           this.cart=JSON.parse(localStorage.getItem('cart'));
         }
         this.productEntries.product=product;
-        this.productEntries.quantity+=1;        
-        this.cart.productEntry.push(this.productEntries);
+        this.addToExisting(this.productEntries.product);
+        if(!this.existing){
+          this.productEntries.quantity+=1;
+          this.cart.productEntry.push(this.productEntries);
+        }        
         localStorage.setItem('cart',JSON.stringify(this.cart));
         this.router.navigateByUrl('/cart');
       }, (reason) => {
      console.log("hello");
       });
-    }
+    }}
     
+    private addToExisting(entry:Product){   
+    this.cart.productEntry.forEach(item=>{
+      if(item.product.id===entry.id){
+        this.existing =true;
+        item.quantity+=1;
+      }
+    });
+
+    }
     private getDismissReason(reason: any): string {
       if (reason === ModalDismissReasons.ESC) {
         return 'by pressing ESC';

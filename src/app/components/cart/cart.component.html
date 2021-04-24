@@ -6,13 +6,15 @@
      <div class="container">
      <div class="grid" *ngFor="let child of product;let i = index">
          <div class="border"><img class="checkout1 " src="{{child.product.imageUrl}}"><span class="border_custom">{{child.product.name}}</span>
-        
-            <button (click)="subtract(child,i)">-</button>
+        <span class="quantity">
+            <button (click)="subtract(child,i)" class="btn btn-outline-danger">-</button>
             {{child.quantity}}
-            <button (click)="add(child)">+</button>
+            <button (click)="add(child)" class="btn btn-outline-success">+</button>
+          </span>
+         <span class="border_custom2 delete"> <button (click)="delete(child,i)" class="btn btn-outline-danger">Delete</button></span>
+         <span class="border_custom3"> <b>Total Price: </b>{{child.product.price*child.quantity | currency:'INR'}}</span>  
+        </div>
           
-         <span class="border_custom2"> <button (click)="delete(child,i)">Delete</button></span>
-          <span class="border_custom2"> Total Price: {{child.product.price*child.quantity}}</span></div>
       </div></div>
   <!--Main layout-->
   <main class="mt-5 pt-4">

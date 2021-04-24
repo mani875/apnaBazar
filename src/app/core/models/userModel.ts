@@ -1,10 +1,7 @@
-export interface user {
-    id: string;
-    name: string;
- password:string;
- phone:number;
- email:string;
- shippingAddress:string;
- postalCode:number;
+export interface User {
+    name:string;
+    userName: string;
+    password: string;
+    level: string;
   }
   

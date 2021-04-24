@@ -6,16 +6,18 @@ import { CrouselProductResolver } from './components/resolvers/crousel-product.r
 import { ProductsComponent } from './shared/products/products/products.component';
 import { ProductResolver } from './components/resolvers/product.resolver';
 import { CartComponent } from './components/cart/cart.component';
-import { CartProductResolver } from './components/resolvers/cart-product.resolver';
+import { AuthenticationGuard } from './components/authentication/authentication.guard';
+import { LoginComponent } from './components/login/login.component';
 const routes: Routes = [
   {path:'' ,redirectTo:'/home' ,pathMatch:'full'},
   {path:'home', component:HomeComponent,resolve:{
     productList: CrouselProductResolver
   }},
-  {path:'cart',component:CartComponent},
+  {path:'cart',component:CartComponent,canActivate: [AuthenticationGuard]},
   {path:'products',component:ProductsComponent,resolve:{
     productList: ProductResolver
   }},
+  {path:'login' ,component:LoginComponent},
   {path:'**',component:NotFoundComponent}
 
 ];

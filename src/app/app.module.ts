@@ -16,6 +16,7 @@ import { SidebarModule } from 'ng-sidebar';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CartComponent } from './components/cart/cart.component';
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
     HomeComponent,
     NotFoundComponent,
     ProductsComponent,
-    CartComponent
+    CartComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
       }     
     })
   ],
-  providers: [],
+  providers: [HeaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ActivatedRoute , Router} from '@angular/router';
 import { Product } from 'src/app/core/models';
 import { NgbModal , ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
@@ -15,7 +14,6 @@ import { Cart } from 'src/app/core/models/cartModel';
 export class ProductsComponent implements OnInit {
   product: Product;
   addToCartProduct:Product;
-  // closeResult:Product ;
   cartProduct:Product[];
   cart:Cart;
   productEntries:ProductEntry;

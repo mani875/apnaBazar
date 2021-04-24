@@ -2,7 +2,7 @@
  <!-- <table class="grid"><tr *ngFor="let child of product" class="grid">
      <td><img class="checkout1" src="{{child.imageUrl}}"></td>></tr></table> -->
     
-     <div class="product-heading">Products in Cart</div>
+     <h2><div class="product-heading">Products in Cart {{product.length}}</div></h2>
      <div class="container">
      <div class="grid" *ngFor="let child of product;let i = index">
          <div class="border"><img class="checkout1 " src="{{child.product.imageUrl}}"><span class="border_custom">{{child.product.name}}</span>
@@ -11,7 +11,7 @@
             {{child.quantity}}
             <button (click)="add(child)">+</button>
           
-         <span class="border_custom2"> <button (click)="delete(i)">Delete</button></span>
+         <span class="border_custom2"> <button (click)="delete(child,i)">Delete</button></span>
           <span class="border_custom2"> Total Price: {{child.product.price*child.quantity}}</span></div>
       </div></div>
   <!--Main layout-->
@@ -180,7 +180,7 @@
           <!-- Cart -->
           <ul class="list-group mb-3 z-depth-1">
             <li class="list-group-item d-flex justify-content-between">
-              <span>Total (INR)</span>
+              <span>Total (INR) {{totalPrice |currency :'INR'}}</span>
               <strong></strong>
             </li>
           </ul>
@@ -200,15 +200,22 @@
   </main>
   <!--Main layout-->
 
-  <ng-template #content let-modal>
+  <ng-template #content let-modal data-backdrop="static">
     <div class="modal-header">
         <h4 class="modal-title" 
             id="modal-basic-title">
             Congratulations!
         </h4>
+        <button type="button" class="close"
+        aria-label="Close" (click)="modal.dismiss('Cross click')">
+
+    <span aria-hidden="true">
+        close
+    </span>
+</button>
     </div>
     <div class="modal-body">
-      You have Successfully placed your Order.
+      You have Successfully placed your Order. Thankyou for Shopping
     </div>
     <div class="modal-footer">
         <button type="button" 

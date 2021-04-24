@@ -4,7 +4,7 @@ import { filter, map, mergeMap } from 'rxjs/operators'
 import { Cart } from 'src/app/core/models/cartModel';
 import { ProductEntry } from 'src/app/core/models/productEntryModel';
 import { NgForm, Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-cart',
@@ -15,17 +15,18 @@ export class CartComponent implements OnInit {
 productCode:string;
 cart:Cart;
 num:number;
-price:number;
+totalPrice:number;
 value:any='';
 userForm: FormGroup;
 
 product:ProductEntry[];
 childEntry:ProductEntry;
-  constructor(public fb: FormBuilder,private modalService: NgbModal,private readonly router: Router) {     
+  constructor(public fb: FormBuilder,private modalService: NgbModal,private readonly router: Router) { 
+        
   }
 
   ngOnInit(): void {
-
+    this.totalPrice=0;
       this.cart= JSON.parse(localStorage.getItem('cart'));
        this.product=this.cart.productEntry;
        this.userForm = this.fb.group({
@@ -35,22 +36,29 @@ childEntry:ProductEntry;
         postalCode: ["", [Validators.required,Validators.minLength(6),Validators.maxLength(6)]],
         phone: ["", [Validators.required,Validators.minLength(10),Validators.maxLength(10)]]
     });
+    this.cart.productEntry.forEach(item=>{
+      this.totalPrice+=item.product.price*item.quantity;
+    })
   }
   subtract(child,i){
     this.num=i;
 this.childEntry=child;
 this.childEntry.quantity-=1;
 localStorage.setItem('cart',JSON.stringify(this.cart));
+this.totalPrice-=this.childEntry.product.price;
 if(this.childEntry.quantity===0){
-  this.delete(this.num);
+  this.delete(child,this.num);
 }
   }
   add(child){
     this.childEntry=child;
     this.childEntry.quantity+=1;
+    this.totalPrice=Number(this.childEntry.product.price)+Number(this.totalPrice);
     localStorage.setItem('cart',JSON.stringify(this.cart));
       }
-delete(i){
+delete(child,i){
+  this.childEntry=child;
+  this.totalPrice=Number(this.totalPrice)-Number(this.childEntry.product.price*this.childEntry.quantity);
   this.product.splice(i,1);
   localStorage.setItem('cart',JSON.stringify(this.cart));
 }
@@ -68,10 +76,13 @@ open(content) {
   this.modalService.open(content,
  {ariaLabelledBy: 'modal-basic-title'}).result.then((product) => {
     // this.closeResult = product;
+    
     this.checkout();
   }, (reason) => {
- 
+    this.checkout();
   });
 }
+
 public _opened: boolean = false;
+
 }

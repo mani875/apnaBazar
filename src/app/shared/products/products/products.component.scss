@@ -31,8 +31,9 @@ box-shadow: 0 2px #666;
   }
 
   .search-area{
-    float: right;
     padding-right: 10px;
+    float: right;
+    width: 20%;
   }
   .product-grid{
     background-color: #fff;
@@ -155,8 +156,11 @@ box-shadow: 0 2px #666;
     background: #333;
  }
 .product-grid .product-content{
-    text-align: left;
-    padding: 15px 0 0;
+    // text-align: left;
+    // padding: 15px 0 0;
+    font-family: system-ui;
+    /* font-size: xx-small; */
+    text-align: center;
 }
 .product-grid .title{
     font-size: 14px;
@@ -203,8 +207,16 @@ box-shadow: 0 2px #666;
     display: grid;
   }
   .table_custom{
-      padding-left: 50px;
+    //   padding-left: 50px;
       width: 100%;
+      align-items: center;
+      text-align: center;
+      margin-block: auto;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      padding-left: 0;
+      padding-right: inherit;
   }
   .image_popup{
 display: block;

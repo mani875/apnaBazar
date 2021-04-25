@@ -1,7 +1,7 @@
-<form class="form-inline my-2 my-lg-0 search-area">
-  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</form>
+<!-- <form class=""> -->
+  <input class="form-control mr-sm-2 form-inline my-2 my-lg-0 search-area" type="search" placeholder="Search" [(ngModel)]="searchString" aria-label="Search">
+<!-- </form> -->
+{{searchString}}
 <ng-sidebar-container style = "height: 100vh" >
   <div ng-sidebar-content >
     <!-- <button  (click)="_toggleSidebar()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,13 +13,13 @@
     
     
       <div class="row">
-      <div class="col-md-2" *ngFor="let i of product"> 
+      <div class="col-md-2" *ngFor="let i of searchProducts"> 
         <div class="product-grid " >
         <div  >
               <div class="product-image ">
                                        <div class="product-image">
                                        <a href="#" class="image">
-                                          <img class="pic-1 table_custom" src="{{i.imageUrl}}">   
+                                          <img class="pic-1 table_custom container card" src="{{i.imageUrl}}">   
                                        </a>
                                           <ul class="product-links bi bi-cart">       
                                               <li class="bi bi-cart"><a ([addToCartProduct])='i' (click)="open(content)">ADD<i class="fas fa-shopping-cart"></i></a></li>                                          
@@ -88,9 +88,16 @@
 <div></div>
   <ng-sidebar [(opened)]="_opened" mode = "push" class="ng-sidebar-custom1" style="padding-bottom: 100px">
     <div class="ng-sidebar-custom">
-     <form>
+      <form class="card-body cursor" (ngSubmit)="save()" [formGroup]="userForm">Price Range<br>
+        <input type="checkbox" id="checkbox-1" value="value-1" formControlName="less" />less than 500<br>
+        <input type="checkbox" id="checkbox-2" value="value-2" formControlName="medium" />500-2000<br>
+        <input type="checkbox" id="checkbox-3" value="value-2" formControlName="high" />more than 2000<br>
+        <br><br><br><br>
+          <button  type="submit"  [disabled]="!userForm.valid" class="submit-button" >
+            Search
+          </button>
 
-     </form>
+</form>
     </div>
   </ng-sidebar>
   

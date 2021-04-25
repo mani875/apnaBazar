@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute , Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Product } from 'src/app/core/models';
-import { NgbModal , ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { ProductEntry } from 'src/app/core/models/productEntryModel';
 import { Cart } from 'src/app/core/models/cartModel';
+import { ProductEntry } from 'src/app/core/models/productEntryModel';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -12,7 +13,8 @@ import { Cart } from 'src/app/core/models/cartModel';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  product: Product;
+  product: Product[];
+  searchProducts:Product[];
   addToCartProduct:Product;
   cartProduct:Product[];
   cart:Cart;
@@ -21,9 +23,12 @@ export class ProductsComponent implements OnInit {
   num:any=[];
   grid:any=[];
   existing:Boolean=false;
+  _searchString: string;
+  Search:string="search for products"
+  userForm: FormGroup;
+  
 
-
-  constructor(private readonly route: ActivatedRoute,private modalService: NgbModal, private readonly router: Router) {
+  constructor(public fb: FormBuilder,private readonly route: ActivatedRoute,private modalService: NgbModal, private readonly router: Router) {
    if(!localStorage.getItem('cart')){
     this.cart={
       code: "",
@@ -36,21 +41,17 @@ export class ProductsComponent implements OnInit {
      product:null,
      quantity:0
    };
-    
+   
    }
  
   ngOnInit(): void {
+    this.userForm = this.fb.group({
+      name: ["", [Validators.required]],
+      password: ["", [Validators.required, Validators.minLength(5)]]
+  });
     this.route.data.subscribe(data => {
       this.product = data.productList;
-      // for(let i=1;i<=data.productList.length;i++){
-      //   if(i%4 !=0){
-      //   this.num.push(data.productList[i-1]);
-      //   }
-      //   else{
-      //  this.grid.push(this.num);
-      //   this.num = [];
-      //   }
-      //   }
+      this.searchProducts=this.product;
     })
   }
   
@@ -102,6 +103,23 @@ export class ProductsComponent implements OnInit {
 
     public _toggleSidebar() {
       this._opened = !this._opened;}
+
+      updateFilter(searchString: string): Product[] {
+        searchString = searchString.toLowerCase();
+        return this.product.filter(item =>
+            item.name.toLowerCase().indexOf(searchString) !== -1);
+    }
+
+    public get searchString(): string {
+      return this._searchString;
+    }
+    public set searchString(value: string) {
+      this._searchString = value;
+      this.searchProducts = this.searchString ? this.updateFilter(this.searchString) : this.product;
+    }
+    save(){
+      
+    }
 }
 
 

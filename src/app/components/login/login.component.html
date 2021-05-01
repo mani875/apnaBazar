@@ -1,7 +1,7 @@
 
 <div class="wrapper fadeInDown back-custom">
     
-    <div id="formContent">
+    <div id="formContent" *ngIf="!userData">
       <!-- Tabs Titles -->
   
       <!-- Icon -->
@@ -59,3 +59,16 @@
 
     </div>
   </div>
+
+
+  <div id="formContent" *ngIf="userData" class="containter card">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first custom-welcome card" >
+      Welcome To Apna Bazar <span>{{userData.name}}.</span><br>
+      currently your level is <span>{{userData.level}}</span>
+    </div>  
+
+  </div>
+  

@@ -5,7 +5,7 @@
         "price": "100",
         "description": "Color White Men Round Collar Shirt",
         "imageUrl": "/assets/images/productImages/cloth_1.jpeg",
-        "category":"Men's Fashion"
+        "category":"Men"
     },
     {
         "id": "909745",
@@ -13,7 +13,7 @@
         "price": "90900",
         "description": "Aza Fashion's Designer Collection offers a wide range of silver gown online",
         "imageUrl": "/assets/images/productImages/women_1.jpg",
-        "category":"Women's Fashion"
+        "category":"Women"
     },
     {
         "id": "109746",
@@ -21,7 +21,7 @@
         "price": "200",
         "description": "heelllo",
         "imageUrl": "/assets/images/productImages/cloth_2.jpeg",
-        "category":""
+        "category":"Men"
     },
     {
         "id": "109747",
@@ -29,7 +29,7 @@
         "price": "300",
         "description": "heelllo",
         "imageUrl": "/assets/images/productImages/cloth_3.jpeg",
-        "category":""
+        "category":"Men"
     },
     {
         "id": "109748",
@@ -37,7 +37,7 @@
         "price": "400",
         "description": "heelllo",
         "imageUrl": "/assets/images/productImages/cloth_4.jpeg",
-        "category":""
+        "category":"Men"
     },
     {
         "id": "109749",
@@ -45,7 +45,7 @@
         "price": "700",
         "description": "heelllo",
         "imageUrl": "/assets/images/productImages/cloth_5.jpeg",
-        "category":""
+        "category":"Men"
     },
     {
         "id": "109750",
@@ -53,7 +53,7 @@
         "price": "2000",
         "description": "heelllo",
         "imageUrl": "/assets/images/productImages/foot_1.jpg",
-        "category":""
+        "category":"Footwear"
     },
     {
         "id": "109751",
@@ -61,7 +61,7 @@
         "price": "1000",
         "description": "heelllo",
         "imageUrl": "/assets/images/productImages/foot_2.jpg",
-        "category":""
+        "category":"Footwear"
     },
     {
         "id": "209745",
@@ -69,7 +69,7 @@
         "price": "100",
         "description": "heelllo",
         "imageUrl": "/assets/images/productImages/foot_3.jpg",
-        "category":""
+        "category":"Footwear"
     },
     {
         "id": "209741",
@@ -77,7 +77,7 @@
         "price": "9000",
         "description": "heelllo",
         "imageUrl": "/assets/images/productImages/foot_4.jpg",
-        "category":""
+        "category":"Footwear"
     },
     {
         "id": "209748",
@@ -85,7 +85,7 @@
         "price": "9000",
         "description": "heelllo",
         "imageUrl": "/assets/images/productImages/makeup_1.jpg",
-        "category":""
+        "category":"makeup"
     },
     {
         "id": "409745",
@@ -93,7 +93,7 @@
         "price": "8000",
         "description": "heelllo",
         "imageUrl": "/assets/images/productImages/makeup_2.jpg",
-        "category":""
+        "category":"makeup"
     },
     {
         "id": "909745",
@@ -101,6 +101,6 @@
         "price": "909",
         "description": "heelllo",
         "imageUrl": "/assets/images/productImages/makeup_3.jpg",
-        "category":""
+        "category":"makeup"
     }
   ]

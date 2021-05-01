@@ -10,8 +10,6 @@
     "src/polyfills.ts"
   ],
   "include": [
-    "src/**/*.d.ts",
-    "**/*.ts", 
-    "../node_modules/angular-bootstrap-md/index.ts"
+    "src/**/*.d.ts"
   ]
 }

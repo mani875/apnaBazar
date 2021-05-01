@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './shared/home/home.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { CrouselProductResolver } from './components/resolvers/crousel-product.resolver';
-import { ProductsComponent } from './shared/products/products/products.component';
+import { ProductsComponent } from './shared/products/products.component';
 import { ProductResolver } from './components/resolvers/product.resolver';
 import { CartComponent } from './components/cart/cart.component';
 import { AuthenticationGuard } from './components/authentication/authentication.guard';

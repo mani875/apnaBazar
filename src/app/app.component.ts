@@ -9,8 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   title = 'apnaBazar';
   constructor(public translate:TranslateService){
-    this.translate.addLangs(['en','my']);
+    this.translate.addLangs(['en','hi']);
     this.translate.setDefaultLang('en');
-    this.translate.use('en');
+    this.translate.use('hi');
   }
 }

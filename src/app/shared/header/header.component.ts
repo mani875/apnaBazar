@@ -7,17 +7,22 @@ import { User } from 'src/app/core/models/userModel';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
-  userData:User;
   userName:string
+  constructor() { 
+    
+  }
+  userData:User;
+  
   ngOnInit(): void {
     this.userData=JSON.parse(localStorage.getItem('userHeader'));
+    if(this.userData){
    this.userName= this.userData.name;
+    }
   }
 
   logout(){
     localStorage.removeItem('userHeader');
     this.userName="";
   }
+
 }

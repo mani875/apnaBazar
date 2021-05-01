@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 userName:string='';
 password:string='';
 users:User[];
+userData:User;
   constructor(public fb: FormBuilder,private userService: UserService,private readonly router:Router,private header:HeaderComponent) { }
   userForm: FormGroup;
   ngOnInit(): void {
@@ -21,6 +22,7 @@ users:User[];
       name: ["", [Validators.required]],
       password: ["", [Validators.required, Validators.minLength(5)]]
   });
+  this.userData=JSON.parse(localStorage.getItem('userHeader'));
   }
   save(){
     this.userName=this.userForm.controls.name.value;
@@ -28,11 +30,11 @@ users:User[];
     this.userService.getUsers().subscribe(data=>{
      data.forEach(child=>{
        if(child.userName=== this.userName && child.password===this.password){
-         localStorage.setItem('userHeader',JSON.stringify(child));
-         this.header.ngOnInit();
-         this.router.navigateByUrl('/home');
-         
-        
+         localStorage.setItem('userHeader',JSON.stringify(child));       
+        //  window.location.reload();
+        this.router.navigateByUrl("products");
+        // this.header.ngOnInit();
+
        }
      })
     });

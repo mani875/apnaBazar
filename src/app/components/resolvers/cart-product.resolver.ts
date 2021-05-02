@@ -6,7 +6,7 @@ import {
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { ProductService } from 'src/app/core/services/product/product.service';
-import { Product } from 'src/app/core/models';
+import { Product } from '@apnaBazar/core';
 
 @Injectable({
   providedIn: 'root'

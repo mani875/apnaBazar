@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Product } from 'src/app/core/models';
 import { Cart } from 'src/app/core/models/cartModel';
 import { ProductEntry } from 'src/app/core/models/productEntryModel';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Product } from '@apnaBazar/core';
 
 
 @Component({

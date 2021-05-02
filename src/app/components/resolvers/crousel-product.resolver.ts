@@ -5,8 +5,8 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { Product } from 'src/app/core/models';
 import { ProductService } from 'src/app/core/services/product/product.service';
+import { Product } from '@apnaBazar/core';
 
 @Injectable({
   providedIn: 'root'

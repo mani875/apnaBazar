@@ -1,4 +1,4 @@
-import { Product } from '.';
+import { Product } from '@apnaBazar/core';
 
 export interface ProductEntry {
     product:Product;

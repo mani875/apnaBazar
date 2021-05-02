@@ -13,6 +13,7 @@ import { HeaderComponent } from 'src/app/shared/header/header.component';
 export class LoginComponent implements OnInit {
 userName:string='';
 password:string='';
+error:boolean;
 users:User[];
 userData:User;
   constructor(public fb: FormBuilder,private userService: UserService,private readonly router:Router,private header:HeaderComponent) { }
@@ -31,10 +32,11 @@ userData:User;
      data.forEach(child=>{
        if(child.userName=== this.userName && child.password===this.password){
          localStorage.setItem('userHeader',JSON.stringify(child));       
-        //  window.location.reload();
         this.router.navigateByUrl("products");
-        // this.header.ngOnInit();
-
+        this.error=false;
+       }
+       else{
+         this.error=true;
        }
      })
     });

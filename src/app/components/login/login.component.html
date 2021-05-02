@@ -49,6 +49,9 @@
               Please enter your Password.
             </span>
           </span>
+          <label class="incorrectPass" *ngIf="error">
+            Incorrect username and password
+          </label>
           </div>
           <button  type="submit"  [disabled]="!userForm.valid" class="submit-button" >
             Login
@@ -59,16 +62,3 @@
 
     </div>
   </div>
-
-
-  <div id="formContent" *ngIf="userData" class="containter card">
-    <!-- Tabs Titles -->
-
-    <!-- Icon -->
-    <div class="fadeIn first custom-welcome card" >
-      Welcome To Apna Bazar <span>{{userData.name}}.</span><br>
-      currently your level is <span>{{userData.level}}</span>
-    </div>  
-
-  </div>
-  

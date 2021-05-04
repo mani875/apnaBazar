@@ -14,7 +14,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 export class LoginComponent implements OnInit {
   userName: string;
   password: string;
-  error: boolean;
+  error = false;
   users: User[];
   userData: User;
   constructor(
@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
         ) {
           this.userService.login(child);
           this.router.navigateByUrl('products');
-          this.error = false;
         } else {
           this.error = true;
         }

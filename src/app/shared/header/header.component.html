@@ -57,12 +57,12 @@
       <form class="form-inline my-2 my-lg-0">
         <div *ngIf="userName">
           <label class="btn btn-outline my-2 my-sm-0 navbar-color" type="submit"
-            >Welcome {{ userName }}
+            >{{ "MAIN.WELCOME" | translate }} {{ userName }}
             <button
               class="btn btn-outline border my-2 my-sm-0 navbar-color"
               (click)="logout()"
             >
-              Logout
+              {{ "MAIN.LOGOUT" | translate }}
             </button>
           </label>
         </div>

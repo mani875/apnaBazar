@@ -1,42 +1,59 @@
-  <!-- Navbar -->
- <!-- <table class="grid"><tr *ngFor="let child of product" class="grid">
+<!-- Navbar -->
+<!-- <table class="grid"><tr *ngFor="let child of product" class="grid">
      <td><img class="checkout1" src="{{child.imageUrl}}"></td>></tr></table> -->
-    
-     <h2><div class="product-heading">Products in Cart {{product.length}}</div></h2>
-     <div class="container">
-     <div class="grid" *ngFor="let child of product;let i = index">
-         <div class="border"><img class="checkout1 " src="{{child.product.imageUrl}}"><span class="border_custom">{{child.product.name}}</span>
-        <span class="quantity">
-            <button (click)="subtract(child,i)" class="btn btn-outline-danger">-</button>
-            {{child.quantity}}
-            <button (click)="add(child)" class="btn btn-outline-success">+</button>
-          </span>
-         <span class="border_custom2 delete"> <button (click)="delete(child,i)" class="btn btn-outline-danger">Delete</button></span>
-         <span class="border_custom3"> <b>Total Price: </b>{{child.product.price*child.quantity | currency:'INR'}}</span>  
-        </div>
-          
-      </div></div>
-  <!--Main layout-->
-  <main class="mt-5 pt-4">
-    <div class="container wow fadeIn">
 
-      <!-- Heading -->
-      <h2 class="my-5 h2 text-center">Checkout form</h2>
+<h2>
+  <div class="product-heading">
+    {{ "CART.PRODUCTS" | translate }} {{ product.length }}
+  </div>
+</h2>
+<div class="container">
+  <div class="grid" *ngFor="let child of product; let i = index">
+    <div class="border">
+      <img class="checkout1" src="{{ child.product.imageUrl }}" /><span
+        class="border_custom"
+        >{{ child.product.name }}</span
+      >
+      <span class="quantity">
+        <button (click)="subtract(child, i)" class="btn btn-outline-danger">
+          -
+        </button>
+        {{ child.quantity }}
+        <button (click)="add(child)" class="btn btn-outline-success">+</button>
+      </span>
+      <span class="border_custom2 delete">
+        <button (click)="delete(child, i)" class="btn btn-outline-danger">
+          {{ "CART.DELETE" | translate }}
+        </button></span
+      >
+      <span class="border_custom3">
+        <b> {{ "CART.PRICE" | translate }} </b
+        >{{ child.product.price * child.quantity | currency: "INR" }}</span
+      >
+    </div>
+  </div>
+</div>
+<!--Main layout-->
+<main class="mt-5 pt-4">
+  <div class="container wow fadeIn">
+    <!-- Heading -->
+    <h2 class="my-5 h2 text-center">{{ "CART.CHECKOUT" | translate }}</h2>
 
-      <!--Grid row-->
-      <div class="row">
-
-        <!--Grid column-->
-        <div class="col-md-8 mb-4">
-
-          <!--Card-->
-          <div class="card">
-
-            <!--Card content-->
-            <form class="card-body cursor" (ngSubmit)="open(content)" [formGroup]="userForm">
-              <div class="form-group">
-                <label>Enter Full Name</label>
-                <input
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-md-8 mb-4">
+        <!--Card-->
+        <div class="card">
+          <!--Card content-->
+          <form
+            class="card-body cursor"
+            (ngSubmit)="open(content)"
+            [formGroup]="userForm"
+          >
+            <div class="form-group">
+              <label>{{ "CART.NAME" | translate }}</label>
+              <input
                 class="form-control"
                 id="txtName"
                 type="text"
@@ -44,20 +61,20 @@
                 formControlName="name"
                 [ngClass]="{
                   'is-invalid':
-                    (userForm.get('name').touched || userForm.get('name').dirty) &&
+                    (userForm.get('name').touched ||
+                      userForm.get('name').dirty) &&
                     !userForm.get('name').valid
                 }"
               />
               <span class="invalid-feedback">
                 <span *ngIf="userForm.get('name').errors?.required">
-                  Please enter your Name.
+                  {{ "CART.NAMEERR1" | translate }}
                 </span>
               </span>
-
-            </div> 
-                <div class="form-group">
-                <label>Email</label>
-                <input
+            </div>
+            <div class="form-group">
+              <label>{{ "CART.EMAIL" | translate }}</label>
+              <input
                 class="form-control"
                 id="txtName"
                 type="text"
@@ -65,165 +82,161 @@
                 formControlName="email"
                 [ngClass]="{
                   'is-invalid':
-                    (userForm.get('email').touched || userForm.get('email').dirty) &&
+                    (userForm.get('email').touched ||
+                      userForm.get('email').dirty) &&
                     !userForm.get('email').valid
                 }"
               />
               <span class="invalid-feedback">
                 <span *ngIf="userForm.get('email').errors?.required">
-                  Please enter your email.
+                  {{ "CART.EMAILERR1" | translate }}
                 </span>
                 <span *ngIf="userForm.get('email').errors?.pattern">
-                 please enter correct email.(abc@example.com)
+                  {{ "CART.EMAILERR2" | translate }}
                 </span>
               </span>
-
-            </div> 
+            </div>
             <div class="form-group">
-              <label>Shipping Address</label>
+              <label>{{ "CART.ADDRESS" | translate }}</label>
               <input
-              class="form-control"
-              id="txtName"
-              type="text"
-              placeholder="Enter Shipping Address"
-              formControlName="address"
-              [ngClass]="{
-                'is-invalid':
-                  (userForm.get('address').touched || userForm.get('address').dirty) &&
-                  !userForm.get('address').valid
-              }"
-            />
-            <span class="invalid-feedback">
-              <span *ngIf="userForm.get('address').errors?.required">
-                Please enter your address.
+                class="form-control"
+                id="txtName"
+                type="text"
+                placeholder="Enter Shipping Address"
+                formControlName="address"
+                [ngClass]="{
+                  'is-invalid':
+                    (userForm.get('address').touched ||
+                      userForm.get('address').dirty) &&
+                    !userForm.get('address').valid
+                }"
+              />
+              <span class="invalid-feedback">
+                <span *ngIf="userForm.get('address').errors?.required">
+                  {{ "CART.ADDERR1" | translate }}
+                </span>
+                <span *ngIf="userForm.get('address').errors?.minlength">
+                  {{ "CART.ADDERR2" | translate }}
+                </span>
               </span>
-              <span *ngIf="userForm.get('address').errors?.minlength">
-               Not less than 10 characters.
+            </div>
+            <div class="form-group">
+              <label>{{ "CART.POSTAL" | translate }}</label>
+              <input
+                class="form-control"
+                id="txtName"
+                type="text"
+                placeholder="Enter Postal Code"
+                formControlName="postalCode"
+                [ngClass]="{
+                  'is-invalid':
+                    (userForm.get('postalCode').touched ||
+                      userForm.get('postalCode').dirty) &&
+                    !userForm.get('postalCode').valid
+                }"
+              />
+              <span class="invalid-feedback">
+                <span *ngIf="userForm.get('postalCode').errors?.required">
+                  {{ "CART.POSTALERR1" | translate }}
+                </span>
+                <span *ngIf="userForm.get('postalCode').errors?.minlength">
+                  {{ "CART.POSTALERR2" | translate }}
+                </span>
               </span>
-            </span>
+            </div>
+            <div class="form-group">
+              <label>{{ "CART.PHONE" | translate }}</label>
+              <input
+                class="form-control"
+                id="txtName"
+                type="text"
+                placeholder="Enter Phone Number"
+                formControlName="phone"
+                [ngClass]="{
+                  'is-invalid':
+                    (userForm.get('phone').touched ||
+                      userForm.get('phone').dirty) &&
+                    !userForm.get('phone').valid
+                }"
+              />
+              <span class="invalid-feedback">
+                <span *ngIf="userForm.get('phone').errors?.required">
+                  {{ "CART.PHONEERR1" | translate }}
+                </span>
+                <span *ngIf="userForm.get('phone').errors?.minlength">
+                  {{ "CART.PHONEERR2" | translate }}
+                </span>
+              </span>
+            </div>
+            <hr class="mb-4" />
+            <button
+              type="submit"
+              [disabled]="!userForm.valid"
+              class="submit-button"
+            >
+              {{ "CART.CONFIRM" | translate }}
+            </button>
+          </form>
 
-          </div> 
-          <div class="form-group">
-            <label>Postal Code</label>
-            <input
-            class="form-control"
-            id="txtName"
-            type="text"
-            placeholder="Enter Postal Code"
-            formControlName="postalCode"
-            [ngClass]="{
-              'is-invalid':
-                (userForm.get('postalCode').touched || userForm.get('postalCode').dirty) &&
-                !userForm.get('postalCode').valid
-            }"
-          />
-          <span class="invalid-feedback">
-            <span *ngIf="userForm.get('postalCode').errors?.required">
-              Please enter your Postal Address.
-            </span>
-            <span *ngIf="userForm.get('postalCode').errors?.minlength">
-              Enter correct Postal addrss of 6 numbers(eg. 110192)
-             </span>
-            
-          </span>
+          <!--Grid row-->
 
-        </div> 
-        <div class="form-group">
-          <label>Phone Number</label>
-          <input
-          class="form-control"
-          id="txtName"
-          type="text"
-          placeholder="Enter Phone Number"
-          formControlName="phone"
-          [ngClass]="{
-            'is-invalid':
-              (userForm.get('phone').touched || userForm.get('phone').dirty) &&
-              !userForm.get('phone').valid
-          }"
-        />
-        <span class="invalid-feedback">
-          <span *ngIf="userForm.get('phone').errors?.required">
-            Please enter your Phone Number.
-          </span>
-          <span *ngIf="userForm.get('phone').errors?.minlength">
-           please enter correct Phone Number.(Phone no. should be 10 digits)
-          </span>
-        </span>
-
-      </div> 
-        <hr class="mb-4">
-        <button  type="submit"  [disabled]="!userForm.valid" class="submit-button" >
-        Confirm To Checkout
-      </button>
-            </form>
-
-              <!--Grid row-->
-               
-             
-              
-            <!-- </form> -->
-
-          </div>
-          <!--/.Card-->
-
+          <!-- </form> -->
         </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="col-md-4 mb-4">
-
-          <!-- Heading -->
-          <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Your cart</span>
-            <span class="badge badge-secondary badge-pill"></span>
-          </h4>
-
-          <!-- Cart -->
-          <ul class="list-group mb-3 z-depth-1">
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total (INR) {{totalPrice |currency :'INR'}}</span>
-              <strong></strong>
-            </li>
-          </ul>
-          <!-- Cart -->
-
-          <!-- Promo code -->
-         
-          <!-- Promo code -->
-
-        </div>
-        <!--Grid column-->
-
+        <!--/.Card-->
       </div>
-      <!--Grid row-->
+      <!--Grid column-->
 
-    </div>
-  </main>
-  <!--Main layout-->
-
-  <ng-template #content let-modal data-backdrop="static">
-    <div class="modal-header">
-        <h4 class="modal-title" 
-            id="modal-basic-title">
-            Congratulations!
+      <!--Grid column-->
+      <div class="col-md-4 mb-4">
+        <!-- Heading -->
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">{{ "CART.YOUR" | translate }}</span>
+          <span class="badge badge-secondary badge-pill"></span>
         </h4>
-        <button type="button" class="close"
-        aria-label="Close" (click)="modal.dismiss('Cross click')">
 
-    <span aria-hidden="true">
-        close
-    </span>
-</button>
+        <!-- Cart -->
+        <ul class="list-group mb-3 z-depth-1">
+          <li class="list-group-item d-flex justify-content-between">
+            <span
+              >{{ "CART.TOTALINR" | translate }}
+              {{ totalPrice | currency: "INR" }}</span
+            >
+            <strong></strong>
+          </li>
+        </ul>
+        <!-- Cart -->
+
+        <!-- Promo code -->
+
+        <!-- Promo code -->
+      </div>
+      <!--Grid column-->
     </div>
-    <div class="modal-body">
-      You have Successfully placed your Order. Thankyou for Shopping
-    </div>
-    <div class="modal-footer">
-        <button type="button" 
-            class="btn btn-outline-dark" 
-            (click)="modal.close()">
-            Back to HomePage
-        </button>
-    </div>
-  </ng-template>
+    <!--Grid row-->
+  </div>
+</main>
+<!--Main layout-->
+
+<ng-template #content let-modal data-backdrop="static">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      {{ "CART.CONGRATS" | translate }}
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true"> {{ "CART.CLOSE" | translate }} </span>
+    </button>
+  </div>
+  <div class="modal-body">
+    {{ "CART.MESSAGE" | translate }}
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">
+      {{ "CART.BACK" | translate }}
+    </button>
+  </div>
+</ng-template>

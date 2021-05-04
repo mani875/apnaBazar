@@ -51,7 +51,7 @@
               <ng-template #content let-modal>
                 <div class="modal-header">
                   <h4 class="modal-title" id="modal-basic-title">
-                    ADD TO CART
+                    {{ "PRODUCT.ADD" | translate }}
                   </h4>
                   <button
                     type="button"
@@ -59,7 +59,9 @@
                     aria-label="Close"
                     (click)="modal.dismiss('Cross click')"
                   >
-                    <span aria-hidden="true"> close </span>
+                    <span aria-hidden="true">
+                      {{ "PRODUCT.CLOSE" | translate }}
+                    </span>
                   </button>
                 </div>
                 <div class="modal-body">
@@ -70,10 +72,14 @@
                       <div class="input-group">
                         <img src="{{ i.imageUrl }}" class="image_popup" />
                         <span class="popup-content">
-                          <b>Code</b> : {{ i.id }}<br />
-                          <b>Price</b> : {{ i.price | currency: "INR" }} <br />
-                          <b>Name</b> : {{ i.name }}<br />
-                          <b>Description</b> : {{ i.description }}
+                          <b>{{ "PRODUCT.CODE" | translate }}</b> : {{ i.id
+                          }}<br />
+                          <b>{{ "PRODUCT.PRICE" | translate }}</b> :
+                          {{ i.price | currency: "INR" }} <br />
+                          <b>{{ "PRODUCT.NAME" | translate }}</b> : {{ i.name
+                          }}<br />
+                          <b>{{ "PRODUCT.DESCRIPTION" | translate }}</b> :
+                          {{ i.description }}
                         </span>
                       </div>
                     </div>
@@ -85,7 +91,7 @@
                     class="btn btn-outline-dark"
                     (click)="modal.close(i)"
                   >
-                    Add to Cart
+                    {{ "PRODUCT.ADD" | translate }}
                   </button>
                 </div>
               </ng-template>
@@ -113,7 +119,10 @@
               (ngSubmit)="search()"
               [formGroup]="searchForm"
             >
-              <label class="navigation-bar">Price Range</label><br />
+              <label class="navigation-bar">{{
+                "SIDE.RANGE" | translate
+              }}</label
+              ><br />
               <div class="form-check custom-radio-input text">
                 <div class="radio text">
                   <label
@@ -123,7 +132,7 @@
                       formControlName="priceRange"
                       value="less"
                       id="flexRadioDefault1"
-                    />Less than 500</label
+                    />{{ "SIDE.LESS" | translate }}</label
                   >
                 </div>
                 <div class="radio text">
@@ -133,7 +142,7 @@
                       name="priceRange"
                       formControlName="priceRange"
                       value="mid"
-                    />Between 500 to 3000</label
+                    />{{ "SIDE.BETWEEN" | translate }}</label
                   >
                 </div>
                 <div class="radio text">
@@ -143,13 +152,15 @@
                       name="priceRange"
                       formControlName="priceRange"
                       value="high"
-                    />More than 5000</label
+                    />{{ "SIDE.HIGH" | translate }}</label
                   >
                 </div>
               </div>
               <div class="form-check custom-radio-input text">
                 <br /><br />
-                <label class="navigation-bar text">Categories</label
+                <label class="navigation-bar text">{{
+                  "SIDE.CATEGORY" | translate
+                }}</label
                 ><br /><br />
                 <div class="radio text">
                   <label
@@ -158,7 +169,7 @@
                       name="categories"
                       formControlName="categories"
                       value="Men"
-                    />Male's Fashion</label
+                    />{{ "SIDE.MALE" | translate }}</label
                   >
                 </div>
                 <div class="radio text">
@@ -168,7 +179,7 @@
                       name="categories"
                       formControlName="categories"
                       value="Women"
-                    />Female's Fashion</label
+                    />{{ "SIDE.WOMAN" | translate }}</label
                   >
                 </div>
                 <div class="radio text">
@@ -178,14 +189,14 @@
                       name="categories"
                       formControlName="categories"
                       value="Footwear"
-                    />Footwears</label
+                    />{{ "SIDE.FOOT" | translate }}</label
                   >
                 </div>
                 <br /><br /><br /><br /><br />
               </div>
 
               <button type="submit" class="submit-button btn btn-light">
-                Search
+                {{ "SIDE.SEARCH" | translate }}
               </button>
             </form>
           </div>

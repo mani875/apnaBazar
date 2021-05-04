@@ -20,7 +20,7 @@ export class UserService {
     return this.http.get<User[]>(url);
   }
   isUserLoggedIn(): Observable<any> {
-    return this.localStorageService.observe('isUserLoggedIn');
+    return this.localStorageService.observe('userHeader');
   }
   login(child): void {
     this.localStorageService.store('userHeader', JSON.stringify(child));

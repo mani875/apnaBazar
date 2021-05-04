@@ -4,6 +4,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
 import { User } from 'src/app/core/models/userModel';
 import { Router } from '@angular/router';
 import { HeaderComponent } from 'src/app/shared/header/header.component';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
     public fb: FormBuilder,
     private userService: UserService,
     private readonly router: Router,
-    private header: HeaderComponent
+    private localStorageService: LocalStorageService
   ) {}
   userForm: FormGroup;
   ngOnInit(): void {
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
       name: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(5)]],
     });
-    this.userData = JSON.parse(localStorage.getItem('userHeader'));
+    this.userData = JSON.parse(this.localStorageService.retrieve('userHeader'));
   }
   save(): void {
     this.userName = this.userForm.controls.name.value;
@@ -39,7 +40,6 @@ export class LoginComponent implements OnInit {
           child.userName === this.userName &&
           child.password === this.password
         ) {
-          // localStorage.setItem('userHeader', JSON.stringify(child));
           this.userService.login(child);
           this.router.navigateByUrl('products');
           this.error = false;

@@ -207,12 +207,13 @@ product-grid .product-image .pic-1 {
   background-color: lightgrey;
   height: 100%;
   padding-bottom: 20px;
-  background-image: url("../../../assets/images/login/cover.jpg");
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  text-align: center;
-  background-position: center;
-  background-size: cover;
+  // background-image: url("../../../assets/images/login/cover.jpg");
+  background-color: #002f5f;
+  // background-attachment: fixed;
+  // background-repeat: no-repeat;
+  // text-align: center;
+  // background-position: center;
+  // background-size: cover;
 }
 .text {
   color: white;
@@ -294,7 +295,4 @@ product-grid .product-image .pic-1 {
   /* Support for IE. */
   border: none;
   font-feature-settings: "liga";
-}
-.back-custom {
-  backdrop-filter: brightness(0.5);
 }

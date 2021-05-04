@@ -7,18 +7,22 @@ import {
   Router,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationGuard implements CanActivate {
   isLogged: any = true;
-  constructor(private readonly router: Router) {}
+  constructor(
+    private readonly router: Router,
+    private localStorageService: LocalStorageService
+  ) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (!localStorage.getItem('userHeader')) {
+    if (!this.localStorageService.retrieve('userHeader')) {
       this.router.navigate(['/login']);
       return false;
     }
@@ -26,7 +30,7 @@ export class AuthenticationGuard implements CanActivate {
   }
 
   isLoggedIn(): Observable<any> {
-    if (!localStorage.getItem('userHeader')) {
+    if (!this.localStorageService.retrieve('userHeader')) {
       return this.isLogged;
     }
   }

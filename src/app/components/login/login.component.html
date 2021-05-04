@@ -55,4 +55,11 @@
       </button>
     </form>
   </div>
+  <div id="formContent" *ngIf="userData">
+    <div class="fadeIn first">
+      Welcome To Apna Bazar <br />
+      {{ userData.name }}
+    </div>
+    <div class="fadeIn first">your current level is {{ userData.level }}</div>
+  </div>
 </div>

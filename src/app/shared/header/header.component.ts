@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/core/models/userModel';
 import { AuthenticationGuard } from 'src/app/components/authentication/authentication.guard';
+import { UserService } from 'src/app/core/services/user/user.service';
+import { LocalStorageService } from 'ngx-webstorage';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,20 +11,38 @@ import { AuthenticationGuard } from 'src/app/components/authentication/authentic
 })
 export class HeaderComponent implements OnInit {
   userName: string;
-  constructor(private authenticationService: AuthenticationGuard) {}
+  constructor(
+    private authenticationService: AuthenticationGuard,
+    private userService: UserService,
+    private localStorageService: LocalStorageService,
+    private translateService: TranslateService
+  ) {}
   userData: User;
-  heelo: any;
 
   ngOnInit(): void {
-    this.userData = JSON.parse(localStorage.getItem('userHeader'));
-    if (this.userData) {
+    // this.heelo = this.authenticationService.isLoggedIn;
+    if (this.localStorageService.retrieve('userHeader')) {
+      this.userData = JSON.parse(
+        this.localStorageService.retrieve('userHeader')
+      );
       this.userName = this.userData.name;
     }
-    this.heelo = this.authenticationService.isLoggedIn;
+    this.userService.isUserLoggedIn().subscribe((item) => {
+      if (item) {
+        this.userData = JSON.parse(item);
+        if (this.userData) {
+          this.userName = this.userData.name;
+        }
+      }
+    });
   }
 
   logout(): void {
     localStorage.removeItem('userHeader');
+    this.localStorageService.clear('userHeader');
     this.userName = '';
+  }
+  changeLanguage(lang: string): void {
+    this.translateService.use(lang === 'en' || lang === 'hi' ? lang : 'en');
   }
 }

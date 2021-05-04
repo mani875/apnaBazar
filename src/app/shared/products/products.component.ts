@@ -6,6 +6,7 @@ import { ProductEntry } from 'src/app/core/models/productEntryModel';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Product } from '@apnaBazar/core';
 import { Content } from '@angular/compiler/src/render3/r3_ast';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-products',
@@ -27,13 +28,14 @@ export class ProductsComponent implements OnInit {
   userForm: FormGroup;
   searchForm: FormGroup;
   category: any = [];
-  opened: boolean = true;
+  opened = true;
 
   constructor(
     public fb: FormBuilder,
     public filter: FormBuilder,
     private readonly route: ActivatedRoute,
     private modalService: NgbModal,
+    private localStorageService: LocalStorageService,
     private readonly router: Router
   ) {
     if (!localStorage.getItem('cart')) {
@@ -72,7 +74,7 @@ export class ProductsComponent implements OnInit {
   }
 
   open(content): void {
-    if (!localStorage.getItem('userHeader')) {
+    if (!this.localStorageService.retrieve('userHeader')) {
       this.router.navigateByUrl('/login');
     } else {
       this.modalService

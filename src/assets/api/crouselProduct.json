@@ -1,15 +1,17 @@
-[{
+[
+  {
     "name": "Apna Bazar",
     "description": "Best Products in market",
-    "imageUrl": "/assets/images/carouselImages/image_01.jpg"
-},
-{
+    "imageUrl": "/assets/images/carouselImages/image_03.jpg"
+  },
+  {
     "name": "promotions",
     "description": "get 1 free product on purchase of 4 products",
     "imageUrl": "/assets/images/carouselImages/image_02.jpg"
-},
-{
+  },
+  {
     "name": "cheap and staar product",
     "description": "cheapest product",
-    "imageUrl": "/assets/images/carouselImages/image_03.jpg"
-}]
+    "imageUrl": "/assets/images/carouselImages/image_01.jpg"
+  }
+]

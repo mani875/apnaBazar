@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   userName: string;
   password: string;
   error = false;
+  isPassMatch = false;
   users: User[];
   userData: User;
   constructor(
@@ -42,8 +43,11 @@ export class LoginComponent implements OnInit {
         ) {
           this.userService.login(child);
           this.router.navigateByUrl('products');
+          this.isPassMatch = true;
         } else {
-          this.error = true;
+          if (!this.isPassMatch) {
+            this.error = true;
+          }
         }
       });
     });

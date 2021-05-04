@@ -1,139 +1,196 @@
 <!-- <form class=""> -->
-  <input class="form-control mr-sm-2 form-inline my-2 my-lg-0 search-area" type="search" placeholder="Search" [(ngModel)]="searchString" aria-label="Search">
+<input
+  class="form-control mr-sm-2 form-inline my-2 my-lg-0 search-area"
+  type="search"
+  placeholder="Search"
+  [(ngModel)]="searchString"
+  aria-label="Search"
+/>
 <!-- </form> -->
-<ng-sidebar-container style = "height: 100vh" >
-  <div ng-sidebar-content >
+<ng-sidebar-container style="height: 100vh">
+  <div ng-sidebar-content>
     <!-- <button  (click)="_toggleSidebar()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button> -->
-    <button class="navbar-toggler fas icon" (click)="_toggleSidebar()" type="button">
-      <span class="navbar-custom fas icon">Filters</span>
+    <!-- <button
+      class="navbar-toggler fas icon"
+      (click)="_toggleSidebar()"
+      type="button"
+    > -->
+    <!-- <span class="navbar-custom fas icon">Filters</span>
+    </button> -->
+    <button
+      class="hamburger button btn btn-light"
+      color="primary"
+      aria-label="Example icon button with a menu icon"
+      (click)="toggleSidebar()"
+    >
+      <span class="material-icons">menu</span>
     </button>
-    
-    
-      <div class="row">
-      <div class="col-md-2" *ngFor="let i of searchProducts"> 
-        <div class="product-grid " >
-        <div  >
-              <div class="product-image ">
-                                       <div class="product-image">
-                                       <a (click)="open(content)" class="image">
-                                          <img class="pic-1 table_custom container card" src="{{i.imageUrl}}">   
-                                       </a>
-                                          <ul class="product-links bi bi-cart">       
-                                              <li class="bi bi-cart"><a ([addToCartProduct])='i' (click)="open(content)">ADD<i class="fas fa-shopping-cart"></i></a></li>                                          
-                                          </ul>
-                                       </div>
-                                       <ng-template #content let-modal>
-                                        <div class="modal-header">
-                                            <h4 class="modal-title" 
-                                                id="modal-basic-title">
-                                                ADD TO CART 
-                                            </h4>
-                                            <button type="button" class="close"
-                                                    aria-label="Close" (click)=
-                                                    "modal.dismiss('Cross click')">
-                                      
-                                                <span aria-hidden="true">
-                                                    close
-                                                </span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form>
-                                                <div class="form-group">
-                                                    <label for="dateOfBirth">
-                                                     
-                                                    </label>
-                                                    <h4 class="popup-heading">{{i.category}}</h4>
-                                                    <div class="input-group">
-                                                      
-                                                       <img src="{{i.imageUrl}}" class="image_popup"> 
-                                                    <span class="popup-content"> 
-                                                     <b>Code</b>        : {{i.id}}<br>
-                                                     <b>Price</b>       : {{i.price | currency:'INR' }} <br>
-                                                     <b>Name</b>        : {{i.name}}<br>
-                                                     <b>Description</b> :  {{i.description}} </span>                                                 
-                                                     
-                                                    </div>
-                                                            </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" 
-                                                class="btn btn-outline-dark" 
-                                                (click)="modal.close(i)">
-                                                Add to Cart
-                                            </button>
-                                        </div>
-                                      </ng-template>
-                         </div>
-                         <div class="product-content">
-                          <h3 class="title">{{i.name}}</h3>
-                          <h3 class="title">{{i.description}}</h3>
-                          <div class="price">{{i.price  | currency:'INR'}}</div>
-                        </div>      
-      
-        
-  </div>
-</div>
 
+    <div class="row">
+      <div class="col-md-2" *ngFor="let i of searchProducts">
+        <div class="product-grid">
+          <div>
+            <div class="product-image">
+              <div class="product-image">
+                <a (click)="open(content)" class="image">
+                  <img
+                    class="pic-1 table_custom container card"
+                    src="{{ i.imageUrl }}"
+                  />
+                </a>
+                <ul class="product-links bi bi-cart">
+                  <li class="bi bi-cart">
+                    <a (click)="open(content)"
+                      >ADD<i class="fas fa-shopping-cart"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+              <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h4 class="modal-title" id="modal-basic-title">
+                    ADD TO CART
+                  </h4>
+                  <button
+                    type="button"
+                    class="close"
+                    aria-label="Close"
+                    (click)="modal.dismiss('Cross click')"
+                  >
+                    <span aria-hidden="true"> close </span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="dateOfBirth"> </label>
+                      <h4 class="popup-heading">{{ i.category }}</h4>
+                      <div class="input-group">
+                        <img src="{{ i.imageUrl }}" class="image_popup" />
+                        <span class="popup-content">
+                          <b>Code</b> : {{ i.id }}<br />
+                          <b>Price</b> : {{ i.price | currency: "INR" }} <br />
+                          <b>Name</b> : {{ i.name }}<br />
+                          <b>Description</b> : {{ i.description }}
+                        </span>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-outline-dark"
+                    (click)="modal.close(i)"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </ng-template>
+            </div>
+            <div class="product-content">
+              <h3 class="title">{{ i.name }}</h3>
+              <h3 class="title">{{ i.description }}</h3>
+              <div class="price">{{ i.price | currency: "INR" }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div></div>
+      <ng-sidebar
+        [(opened)]="opened"
+        mode="push"
+        class="ng-sidebar-custom1"
+        style="padding-bottom: 10%"
+      >
+        <div class="ng-sidebar-custom">
+          <div class="text">
+            <form
+              class="text card-body cursor back-custom"
+              (ngSubmit)="search()"
+              [formGroup]="searchForm"
+            >
+              <label class="navigation-bar">Price Range</label><br />
+              <div class="form-check custom-radio-input text">
+                <div class="radio text">
+                  <label
+                    ><input
+                      type="radio"
+                      name="priceRange"
+                      formControlName="priceRange"
+                      value="less"
+                      id="flexRadioDefault1"
+                    />Less than 500</label
+                  >
+                </div>
+                <div class="radio text">
+                  <label class="text"
+                    ><input
+                      type="radio"
+                      name="priceRange"
+                      formControlName="priceRange"
+                      value="mid"
+                    />Between 500 to 3000</label
+                  >
+                </div>
+                <div class="radio text">
+                  <label
+                    ><input
+                      type="radio"
+                      name="priceRange"
+                      formControlName="priceRange"
+                      value="high"
+                    />More than 5000</label
+                  >
+                </div>
+              </div>
+              <div class="form-check custom-radio-input text">
+                <br /><br />
+                <label class="navigation-bar text">Categories</label
+                ><br /><br />
+                <div class="radio text">
+                  <label
+                    ><input
+                      type="radio"
+                      name="categories"
+                      formControlName="categories"
+                      value="Men"
+                    />Male's Fashion</label
+                  >
+                </div>
+                <div class="radio text">
+                  <label
+                    ><input
+                      type="radio"
+                      name="categories"
+                      formControlName="categories"
+                      value="Women"
+                    />Female's Fashion</label
+                  >
+                </div>
+                <div class="radio text">
+                  <label
+                    ><input
+                      type="radio"
+                      name="categories"
+                      formControlName="categories"
+                      value="Footwear"
+                    />Footwears</label
+                  >
+                </div>
+                <br /><br /><br /><br /><br />
+              </div>
 
-
-     
-
-</div>
-
-<div></div>
-  <ng-sidebar [(opened)]="_opened" mode = "push" class="ng-sidebar-custom1" style="padding-bottom: 100px">
-    <div class="ng-sidebar-custom">
-      <!-- <form class="card-body cursor" (ngSubmit)="save()" [formGroup]="userForm">Price Range<br>
-        <input type="checkbox" id="checkbox-1" value="value-1"  />less than 500<br>
-        <input type="checkbox" id="checkbox-2" value="value-2"  />500-2000<br>
-        <input type="checkbox" id="checkbox-3" value="value-2" />more than 2000<br>
-        <br><br><br><br>
-        
-         <label *ngFor="let i of category">
-          <input type="checkbox" [formControlName]="i">
-          {{i}}
-          </label> 
-          <button  type="submit"  [disabled]="!userForm.valid" class="submit-button" >
-            Search
-          </button>
-
-</form> -->
-<form class="card-body cursor" (ngSubmit)="search()" [formGroup]="searchForm">
-  <label class="navigation-bar">Price Range</label><br>
-<div class="form-check custom-radio-input">
-  <div class="radio">
-    <label><input type="radio" name="priceRange" formControlName="priceRange" value="less" id="flexRadioDefault1">Less than 500</label>
-  </div>
-  <div class="radio">
-    <label><input type="radio" name="priceRange" formControlName="priceRange" value="mid">Between 500 to 3000</label>
-  </div>
-  <div class="radio disabled">
-    <label><input type="radio" name="priceRange" formControlName="priceRange" value="high">More than 5000</label>
-  </div>
-
-</div>
-<div class="form-check custom-radio-input"><br><br>
-  <label class="navigation-bar">Categories</label><br><br>
-  <div class="radio">
-    <label><input type="radio" name="categories" formControlName="categories" value="Men" >Male's Fashion</label>
-  </div>
-  <div class="radio">
-    <label><input type="radio" name="categories" formControlName="categories" value="Women">Female's Fashion</label>
-  </div>
-  <div class="radio disabled">
-    <label><input type="radio" name="categories" formControlName="categories" value="Footwear">Footwears</label>
-  </div>
-
-</div>
-<button  type="submit"   class="submit-button btn btn-outline-success" >Search</button>
-</form>
+              <button type="submit" class="submit-button btn btn-light">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </ng-sidebar>
     </div>
-  </ng-sidebar>
-  
- 
-
+  </div></ng-sidebar-container
+>

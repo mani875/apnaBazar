@@ -9,16 +9,17 @@ import { CartComponent } from './components/cart/cart.component';
 import { AuthenticationGuard } from './components/authentication/authentication.guard';
 import { LoginComponent } from './components/login/login.component';
 const routes: Routes = [
-  {path:'' ,redirectTo:'/home' ,pathMatch:'full'},
-  {path:'home', component:HomeComponent,resolve:{
+  { path: '' , redirectTo: '/home' , pathMatch: 'full'},
+  { path: 'home', component: HomeComponent , resolve: {
     productList: CrouselProductResolver
   }},
-  {path:'cart',component:CartComponent,canActivate: [AuthenticationGuard]},
-  {path:'products',component:ProductsComponent,resolve:{
+  { path: 'cart', component: CartComponent, canActivate: [AuthenticationGuard]},
+  { path: 'products', component: ProductsComponent, resolve: {
     productList: ProductResolver
-  }},
-  {path:'login' ,component:LoginComponent},
-  {path:'**',component:NotFoundComponent}
+  }
+},
+  { path: 'login' , component: LoginComponent },
+  { path: '**', component: NotFoundComponent }
 
 ];
 

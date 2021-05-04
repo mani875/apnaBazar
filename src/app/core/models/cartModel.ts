@@ -2,8 +2,7 @@ import { ProductEntry } from './productEntryModel';
 
 export interface Cart {
     code: string;
-    userName:string;
+    userName: string;
     address: string;
-    productEntry:ProductEntry[];
+    productEntry: ProductEntry[];
   }
-  

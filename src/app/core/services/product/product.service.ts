@@ -4,28 +4,25 @@ import { Observable } from 'rxjs';
 import { Product } from '../../models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
+  constructor(private readonly http: HttpClient) {}
+  private PRODUCTS = '/assets/api';
 
-  constructor(private readonly http: HttpClient) { }
-  private PRODUCTS = "/assets/api";
-
-  public getCrouselProduct():Observable<Product[]>{
+  public getCrouselProduct(): Observable<Product[]> {
     const url = `${this.PRODUCTS}/crouselProduct.json`;
-
     return this.http.get<Product[]>(url);
   }
 
-  public getProduct(id: string):Observable<Product>{
+  public getProduct(id: string): Observable<Product> {
     const url = `${this.PRODUCTS}/crouselProduct.json`;
 
     return this.http.get<Product>(url);
   }
 
-  public getProducts():Observable<Product[]>{
+  public getProducts(): Observable<Product[]> {
     const url = `${this.PRODUCTS}/products.json`;
     return this.http.get<Product[]>(url);
   }
 }
-

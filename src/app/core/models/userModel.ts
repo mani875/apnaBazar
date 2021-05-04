@@ -1,7 +1,6 @@
 export interface User {
-    name:string;
+    name: string;
     userName: string;
     password: string;
     level: string;
   }
-  

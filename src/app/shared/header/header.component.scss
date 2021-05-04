@@ -1,10 +1,8 @@
-.header-content{
-    position: relative;
+.header-content {
+  position: relative;
   padding: 56px;
-  overflow: hidden;
-  background-image: url("https://d3nn873nee648n.cloudfront.net/900x600/19538/220-SM939041.jpg");
 }
-#navbarSupportedContent{
+#navbarSupportedContent {
   float: left;
   width: auto;
   border: none;
@@ -12,10 +10,13 @@
   outline: 0;
 }
 
-.navbar-brand{
+.navbar-brand {
   text-shadow: adjust-hue($color: #000000, $degrees: 0);
   font-size: 40px;
 
   font-family: Arial, Helvetica, sans-serif;
-  color: rgb(146, 231, 34);
+  color: white;
+}
+.navbar-color {
+  color: white;
 }

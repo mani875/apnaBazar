@@ -1,34 +1,53 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">{{'MAIN.TITLE' | translate}}</a>
-  
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<div style="background-color: #002f5f; color: white">
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">{{ "MAIN.TITLE" | translate }}</a>
+
+    <div
+      class="collapse navbar-collapse"
+      style="color: white"
+      id="navbarSupportedContent"
+    >
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item ">
-          <a class="nav-link" href="#">{{'MAIN.HOME'|translate}} <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link navbar-color" href="#"
+            >{{ "MAIN.HOME" | translate }}
+            <span class="sr-only">(current)</span></a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="products">{{'MAIN.PRODUCTS'|translate}}</a>
+          <a class="nav-link navbar-color" routerLink="products">{{
+            "MAIN.PRODUCTS" | translate
+          }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="cart">{{'MAIN.CART'|translate}}</a>
+          <a class="nav-link navbar-color" routerLink="cart">{{
+            "MAIN.CART" | translate
+          }}</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0" >
-                  <div *ngIf="userName" >
-          <label class="btn btn-outline  my-2 my-sm-0" type="submit">Welcome {{userName}}
-            <button class="btn btn-outline border my-2 my-sm-0" (click)="logout()">Logout</button>
-         
+      <form class="form-inline my-2 my-lg-0">
+        <div *ngIf="userName">
+          <label class="btn btn-outline my-2 my-sm-0 navbar-color" type="submit"
+            >Welcome {{ userName }}
+            <button
+              class="btn btn-outline border my-2 my-sm-0"
+              (click)="logout()"
+            >
+              Logout
+            </button>
           </label>
-          
-            
         </div>
         <div *ngIf="!userName">
           <a routerLink="login">
-          <button class="btn btn-outline border danger my-2 my-sm-0" type="submit">{{'MAIN.LOGIN'|translate}}</button>
-        </a>
+            <button
+              class="btn btn-outline-success border danger my-2 my-sm-0 navbar-color"
+              type="submit"
+            >
+              {{ "MAIN.LOGIN" | translate }}
+            </button>
+          </a>
         </div>
-      
       </form>
     </div>
   </nav>
+</div>

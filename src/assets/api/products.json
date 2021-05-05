@@ -1,146 +1,122 @@
 [
-    {
-        "id": "109745",
-        "name": "Zara White Tshirt",
-        "price": "100",
-        "description": "Color White Men Round Collar Shirt",
-        "imageUrl": "/assets/images/productImages/cloth_1.jpeg",
-        "category":"Men"
-    },
-    {
-        "id": "909745",
-        "name": "Silver Gown",
-        "price": "90900",
-        "description": "Aza Fashion's Designer Collection offers a wide range of silver gown online",
-        "imageUrl": "/assets/images/productImages/women_1.jpg",
-        "category":"Women"
-    },
-    {
-        "id": "109746",
-        "name": "heelllo",
-        "price": "200",
-        "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/cloth_2.jpeg",
-        "category":"Men"
-    },
-    {
-        "id": "109747",
-        "name": "heelllo",
-        "price": "300",
-        "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/cloth_3.jpeg",
-        "category":"Men"
-    },
-    {
-        "id": "109748",
-        "name": "heelllo",
-        "price": "400",
-        "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/cloth_4.jpeg",
-        "category":"Men"
-    },
-    {
-        "id": "109749",
-        "name": "heelllo",
-        "price": "700",
-        "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/cloth_5.jpeg",
-        "category":"Men"
-    },
-    {
-        "id": "109750",
-        "name": "heelllo",
-        "price": "2000",
-        "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/foot_1.jpg",
-        "category":"Footwear"
-    },
-    {
-        "id": "109751",
-        "name": "heelllo",
-        "price": "1000",
-        "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/foot_2.jpg",
-        "category":"Footwear"
-    },
-    {
-        "id": "209745",
-        "name": "heelllo",
-        "price": "100",
-        "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/foot_3.jpg",
-        "category":"Footwear"
-    },
-    {
-        "id": "209741",
-        "name": "heelllo",
-        "price": "9000",
-        "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/foot_4.jpg",
-        "category":"Footwear"
-    },
-    {
-        "id": "209748",
-        "name": "heelllo",
-        "price": "9000",
-        "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/makeup_1.jpg",
-        "category":"makeup"
-    },
-    {
-        "id": "409745",
-        "name": "heelllo",
-        "price": "8000",
-        "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/makeup_2.jpg",
-        "category":"makeup"
-    },
-    {
-        "id": "9097121",
-        "name": "heelllo",
-        "price": "909",
-        "description": "heelllo",
-        "imageUrl": "/assets/images/productImages/makeup_3.jpg",
-        "category":"makeup"
-    },
-    {
-        "id": "90005",
-        "name": "Silver Gown",
-        "price": "900",
-        "description": "Aza Fashion's Designer Collection offers a wide range of silver gown online",
-        "imageUrl": "/assets/images/productImages/women_2.jpg",
-        "category":"Women"
-    },
-    {
-        "id": "909740",
-        "name": "Silver Gown",
-        "price": "9090",
-        "description": "Aza Fashion's Designer Collection offers a wide range of silver gown online",
-        "imageUrl": "/assets/images/productImages/women_3.jpg",
-        "category":"Women"
-    },
-    {
-        "id": "909748",
-        "name": "Silver Gown",
-        "price": "90900",
-        "description": "Aza Fashion's Designer Collection offers a wide range of silver gown online",
-        "imageUrl": "/assets/images/productImages/women_4.jpg",
-        "category":"Women"
-    },
-    {
-        "id": "909746",
-        "name": "Silver Gown",
-        "price": "90900",
-        "description": "Aza Fashion's Designer Collection offers a wide range of silver gown online",
-        "imageUrl": "/assets/images/productImages/women_5.jpg",
-        "category":"Women"
-    },
-    {
-        "id": "009745",
-        "name": "Zara White Tshirt",
-        "price": "100",
-        "description": "Color White Men Round Collar Shirt",
-        "imageUrl": "/assets/images/productImages/cloth_7.jpg",
-        "category":"Men"
-    }
-  ]
+  {
+    "id": "109745",
+    "name": "Zara White Tshirt",
+    "price": "100",
+    "description": "Color White Men Round Collar Shirt",
+    "imageUrl": "/assets/images/productImages/cloth_1.jpeg",
+    "category": "Men"
+  },
+  {
+    "id": "909745",
+    "name": "Silver Gown",
+    "price": "90900",
+    "description": "Aza Fashion's Designer Collection offers a wide range of silver gown online",
+    "imageUrl": "/assets/images/productImages/women_1.jpg",
+    "category": "Women"
+  },
+  {
+    "id": "109746",
+    "name": "GUCCI",
+    "price": "200",
+    "description": "Men's Graphic Printed Black Cotton Half Sleeve T-Shirt",
+    "imageUrl": "/assets/images/productImages/cloth_2.jpeg",
+    "category": "Men"
+  },
+  {
+    "id": "109747",
+    "name": "Scott International",
+    "price": "300",
+    "description": "Men's Regular Fit T-Shirt ",
+    "imageUrl": "/assets/images/productImages/cloth_3.jpeg",
+    "category": "Men"
+  },
+  {
+    "id": "109748",
+    "name": "Dennis Lingo",
+    "price": "400",
+    "description": "Men's Solid Slim Fit Casual Shirt",
+    "imageUrl": "/assets/images/productImages/cloth_4.jpeg",
+    "category": "Men"
+  },
+  {
+    "id": "109749",
+    "name": "Dennis Lingo",
+    "price": "700",
+    "description": "Dennis Lingo Men's Solid Slim Fit Casual Shirt",
+    "imageUrl": "/assets/images/productImages/cloth_5.jpeg",
+    "category": "Men"
+  },
+  {
+    "id": "109750",
+    "name": "Puma",
+    "price": "3000",
+    "description": "Voyager MU IDP Shoes",
+    "imageUrl": "/assets/images/productImages/foot_1.jpg",
+    "category": "Footwear"
+  },
+  {
+    "id": "109751",
+    "name": "Sparx",
+    "price": "1000",
+    "description": "Men SM-482 Sports Shoes",
+    "imageUrl": "/assets/images/productImages/foot_2.jpg",
+    "category": "Footwear"
+  },
+  {
+    "id": "209745",
+    "name": "NIKE",
+    "price": "100",
+    "description": "Men's Wonder-13 Sports Running Shoes",
+    "imageUrl": "/assets/images/productImages/foot_3.jpg",
+    "category": "Footwear"
+  },
+  {
+    "id": "209741",
+    "name": "Bourge",
+    "price": "9000",
+    "description": "Men's Vega-z3 Running Shoes",
+    "imageUrl": "/assets/images/productImages/foot_4.jpg",
+    "category": "Footwear"
+  },
+  {
+    "id": "209748",
+    "name": "Lakme",
+    "price": "9000",
+    "description": "Lakmé Absolute Blur Perfect, Makeup Primer- Matte Effect, Water Proof Formula, 30 ml",
+    "imageUrl": "/assets/images/productImages/makeup_1.jpg",
+    "category": "makeup"
+  },
+  {
+    "id": "409745",
+    "name": "Lakme",
+    "price": "8000",
+    "description": "Lakme 9 to 5 Weightless Mousse Lip & Cheek Color, Plum Feather, 9 g",
+    "imageUrl": "/assets/images/productImages/makeup_2.jpg",
+    "category": "makeup"
+  },
+  {
+    "id": "90005",
+    "name": "Silver Gown",
+    "price": "900",
+    "description": "Aza Fashion's Designer Collection offers a wide range of silver gown online",
+    "imageUrl": "/assets/images/productImages/women_2.jpg",
+    "category": "Women"
+  },
+  {
+    "id": "909740",
+    "name": "Silver Gown",
+    "price": "9090",
+    "description": "Aza Fashion's Designer Collection",
+    "imageUrl": "/assets/images/productImages/women_3.jpg",
+    "category": "Women"
+  },
+  {
+    "id": "909746",
+    "name": "Balenciaga",
+    "price": "90900",
+    "description": "Collection offers a wide range of silver gown online",
+    "imageUrl": "/assets/images/productImages/women_5.jpg",
+    "category": "Women"
+  }
+]

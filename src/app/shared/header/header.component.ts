@@ -12,7 +12,6 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent implements OnInit {
   userName: string;
   constructor(
-    private authenticationService: AuthenticationGuard,
     private userService: UserService,
     private localStorageService: LocalStorageService,
     private translateService: TranslateService
@@ -20,7 +19,6 @@ export class HeaderComponent implements OnInit {
   userData: User;
 
   ngOnInit(): void {
-    // this.heelo = this.authenticationService.isLoggedIn;
     if (this.localStorageService.retrieve('userHeader')) {
       this.userData = JSON.parse(
         this.localStorageService.retrieve('userHeader')

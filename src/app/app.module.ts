@@ -12,7 +12,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { ProductsComponent } from './shared/products/products.component';
 import { SidebarModule } from 'ng-sidebar';
-import { CoreModule } from './core/core.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CartComponent } from './components/cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -34,7 +33,6 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CoreModule,
     NgbModule,
     FormsModule,
     NgxWebstorageModule.forRoot(),

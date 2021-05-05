@@ -152,7 +152,7 @@ export class ProductsComponent implements OnInit {
         .filter((item) => {
           if (this.searchForm.controls.priceRange.value === 'less') {
             return item.price <= 500;
-          } else if (this.searchForm.controls.priceRange.value === 'medium') {
+          } else if (this.searchForm.controls.priceRange.value === 'mid') {
             return item.price >= 500 && item.price <= 3000;
           } else {
             return item.price >= 3000;
@@ -163,7 +163,7 @@ export class ProductsComponent implements OnInit {
         this.searchProducts = this.product.filter((item) => {
           if (this.searchForm.controls.priceRange.value === 'less') {
             return item.price <= 500;
-          } else if (this.searchForm.controls.priceRange.value === 'medium') {
+          } else if (this.searchForm.controls.priceRange.value === 'mid') {
             return item.price >= 500 && item.price <= 3000;
           } else {
             return item.price >= 3000;

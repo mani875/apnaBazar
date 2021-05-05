@@ -112,14 +112,14 @@
         class="ng-sidebar-custom1"
         style="padding-bottom: 10%"
       >
-        <div class="ng-sidebar-custom">
+        <div class="ng-sidebar-custom text-custom" style="height: fit-content">
           <div class="text">
             <form
-              class="text card-body cursor back-custom"
+              class="text body cursor back-custom"
               (ngSubmit)="search()"
               [formGroup]="searchForm"
             >
-              <label class="navigation-bar">{{
+              <label class="navigation-bar text-custom">{{
                 "SIDE.RANGE" | translate
               }}</label
               ><br />
@@ -156,7 +156,7 @@
                   >
                 </div>
               </div>
-              <div class="form-check custom-radio-input text">
+              <div class="form-check custom-radio-input text text-custom">
                 <br /><br />
                 <label class="navigation-bar text">{{
                   "SIDE.CATEGORY" | translate

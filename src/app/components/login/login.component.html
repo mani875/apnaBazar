@@ -9,7 +9,7 @@
       <div class="form-group">
         <label>{{ "LOGIN.UNAME" | translate }}</label>
         <input
-          class="form-control fadeIn second"
+          class="form-control fadeIn second background-custom"
           id="txtName"
           type="text"
           placeholder="Enter Full Name"
@@ -26,13 +26,13 @@
           </span>
         </span>
       </div>
-      <div class="form-group">
+      <div class="form-group password-custom">
         <label>{{ "LOGIN.PASS" | translate }}</label
         ><br />
         <input
-          class="form-control fadeIn third"
+          class="form-control fadeIn second password-custom1"
           id="txtName"
-          type="text"
+          type="password"
           placeholder="Enter Password"
           formControlName="password"
           [ngClass]="{
@@ -42,6 +42,7 @@
               !userForm.get('password').valid
           }"
         />
+
         <span class="invalid-feedback">
           <span *ngIf="userForm.get('password').errors?.required">
             {{ "LOGIN.ERR2" | translate }}
@@ -49,10 +50,13 @@
         </span>
         <label class="incorrectPass" *ngIf="error == true">
           {{ "LOGIN.ERROR" | translate }}
-          maninidndindidnidn
         </label>
       </div>
-      <button type="submit" [disabled]="!userForm.valid" class="submit-button">
+      <button
+        type="submit"
+        [disabled]="!userForm.valid"
+        class="submit-button btn btn-outline-primary"
+      >
         {{ "LOGIN.MESS" | translate }}
       </button>
     </form>

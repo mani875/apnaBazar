@@ -9,22 +9,32 @@ import { CartComponent } from './components/cart/cart.component';
 import { AuthenticationGuard } from './components/authentication/authentication.guard';
 import { LoginComponent } from './components/login/login.component';
 const routes: Routes = [
-  { path: '' , redirectTo: '/home' , pathMatch: 'full'},
-  { path: 'home', component: HomeComponent , resolve: {
-    productList: CrouselProductResolver
-  }},
-  { path: 'cart', component: CartComponent, canActivate: [AuthenticationGuard]},
-  { path: 'products', component: ProductsComponent, resolve: {
-    productList: ProductResolver
-  }
-},
-  { path: 'login' , component: LoginComponent },
-  { path: '**', component: NotFoundComponent }
-
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: 'home',
+    component: HomeComponent,
+    resolve: {
+      productList: CrouselProductResolver,
+    },
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+    canActivate: [AuthenticationGuard],
+  },
+  {
+    path: 'products',
+    component: ProductsComponent,
+    resolve: {
+      productList: ProductResolver,
+    },
+  },
+  { path: 'login', component: LoginComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

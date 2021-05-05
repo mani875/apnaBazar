@@ -17,8 +17,6 @@ export class CartComponent implements OnInit {
   totalPrice: number;
   value: any;
   userForm: FormGroup;
-  // public _opened: boolean = false;
-
   product: ProductEntry[];
   childEntry: ProductEntry;
   constructor(

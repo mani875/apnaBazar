@@ -12,7 +12,7 @@
   font-style: initial;
   text-shadow: none;
 }
-.new {
+.foot-image {
   background-image: url("../../../assets/images/login/footer.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -21,7 +21,7 @@
   background-size: cover;
 }
 
-.new span {
+.foot-image span {
   display: block;
   height: 100%;
   width: 100%;
@@ -31,7 +31,7 @@
   -webkit-transition: all 1s;
   transition: all 1s;
 }
-.new:hover span {
+.foot-image:hover span {
   opacity: 1;
 }
 
@@ -46,6 +46,6 @@
   transition: 0.5s ease;
   backface-visibility: hidden;
 }
-.new-card:hover .img-card {
+.foot-image-card:hover .img-card {
   opacity: 0.3;
 }

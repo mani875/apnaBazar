@@ -15,12 +15,6 @@ export class ProductService {
     return this.http.get<Product[]>(url);
   }
 
-  public getProduct(id: string): Observable<Product> {
-    const url = `${this.PRODUCTS}/crouselProduct.json`;
-
-    return this.http.get<Product>(url);
-  }
-
   public getProducts(): Observable<Product[]> {
     const url = `${this.PRODUCTS}/products.json`;
     return this.http.get<Product[]>(url);

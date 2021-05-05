@@ -5,7 +5,6 @@ import { Cart } from 'src/app/core/models/cartModel';
 import { ProductEntry } from 'src/app/core/models/productEntryModel';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Product } from '@apnaBazar/core';
-import { Content } from '@angular/compiler/src/render3/r3_ast';
 import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
@@ -38,7 +37,7 @@ export class ProductsComponent implements OnInit {
     private localStorageService: LocalStorageService,
     private readonly router: Router
   ) {
-    if (!localStorage.getItem('cart')) {
+    if (!this.localStorageService.retrieve('cart')) {
       this.cart = {
         code: '',
         userName: '',
@@ -81,10 +80,8 @@ export class ProductsComponent implements OnInit {
         .open(content, { ariaLabelledBy: 'modal-basic-title' })
         .result.then(
           (product) => {
-            // this.closeResult = product;
-
-            if (localStorage.getItem('cart')) {
-              this.cart = JSON.parse(localStorage.getItem('cart'));
+            if (this.localStorageService.retrieve('cart')) {
+              this.cart = JSON.parse(this.localStorageService.retrieve('cart'));
             }
             this.productEntries.product = product;
             this.addToExisting(this.productEntries.product);
@@ -92,7 +89,7 @@ export class ProductsComponent implements OnInit {
               this.productEntries.quantity += 1;
               this.cart.productEntry.push(this.productEntries);
             }
-            localStorage.setItem('cart', JSON.stringify(this.cart));
+            this.localStorageService.store('cart', JSON.stringify(this.cart));
             this.router.navigateByUrl('/cart');
           },
           (reason) => {

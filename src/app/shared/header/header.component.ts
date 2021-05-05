@@ -4,6 +4,7 @@ import { AuthenticationGuard } from 'src/app/components/authentication/authentic
 import { UserService } from 'src/app/core/services/user/user.service';
 import { LocalStorageService } from 'ngx-webstorage';
 import { TranslateService } from '@ngx-translate/core';
+import { Cart } from 'src/app/core/models/cartModel';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -17,6 +18,8 @@ export class HeaderComponent implements OnInit {
     private translateService: TranslateService
   ) {}
   userData: User;
+  cart: Cart;
+  cartLength = 0;
 
   ngOnInit(): void {
     if (this.localStorageService.retrieve('userHeader')) {
@@ -24,6 +27,10 @@ export class HeaderComponent implements OnInit {
         this.localStorageService.retrieve('userHeader')
       );
       this.userName = this.userData.name;
+    }
+    if (this.localStorageService.retrieve('cart')) {
+      this.cart = JSON.parse(this.localStorageService.retrieve('cart'));
+      this.cartLength = this.cart.productEntry.length;
     }
     this.userService.isUserLoggedIn().subscribe((item) => {
       if (item) {
@@ -33,10 +40,16 @@ export class HeaderComponent implements OnInit {
         }
       }
     });
+    this.userService.userCurrentCart().subscribe((item) => {
+      if (item) {
+        this.cart = JSON.parse(item);
+        this.cartLength = this.cart.productEntry.length;
+      }
+    });
+    this.cart = JSON.parse(this.localStorageService.retrieve('userHeader'));
   }
 
   logout(): void {
-    localStorage.removeItem('userHeader');
     this.localStorageService.clear('userHeader');
     this.userName = '';
   }

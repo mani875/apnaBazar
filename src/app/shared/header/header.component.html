@@ -19,11 +19,10 @@
             "MAIN.PRODUCTS" | translate
           }}</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link navbar-color" routerLink="cart">{{
+        <!-- <a class="nav-link navbar-color" routerLink="cart">{{
             "MAIN.CART" | translate
           }}</a>
-        </li>
+        </li> -->
         <li class="nav-item" style="padding-top: 8px">
           <label class="nav-link navbar-color d-inline">Language:</label>
           <select #lang (change)="changeLanguage(lang.value)">
@@ -33,17 +32,25 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
+        <!-- <i class="fa badge" style="font-size: 24px" value="5">&#xf07a;</i> -->
+        <!-- <i class="fa badge" style="font-size: 24px">&#xf07a;5</i> -->
+        <span *ngIf="userName" class="cart-custom">
+          <i class="fa" style="font-size: 24px" routerLink="cart">&#xf07a;</i>
+          <span class="cart" id="lblCartCount"> {{ cartLength }} </span>
+        </span>
+
         <div *ngIf="userName">
-          <label class="btn btn-outline my-2 my-sm-0 navbar-color" type="submit"
+          <label class="my-2 my-sm-0 navbar-color"
             >{{ "MAIN.WELCOME" | translate }} {{ userName }}
-            <button
-              class="btn btn-outline border my-2 my-sm-0 navbar-color"
-              (click)="logout()"
-            >
-              {{ "MAIN.LOGOUT" | translate }}
-            </button>
           </label>
         </div>
+        <button
+          *ngIf="userName"
+          class="btn btn-outline border my-2 my-sm-0 navbar-color"
+          (click)="logout()"
+        >
+          {{ "MAIN.LOGOUT" | translate }}
+        </button>
         <div *ngIf="!userName">
           <a routerLink="login">
             <button

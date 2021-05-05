@@ -22,6 +22,9 @@ export class UserService {
   isUserLoggedIn(): Observable<any> {
     return this.localStorageService.observe('userHeader');
   }
+  userCurrentCart(): Observable<any> {
+    return this.localStorageService.observe('cart');
+  }
   login(child): void {
     this.localStorageService.store('userHeader', JSON.stringify(child));
   }

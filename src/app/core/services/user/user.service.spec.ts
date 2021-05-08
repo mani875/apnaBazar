@@ -7,8 +7,8 @@ import { of } from 'rxjs';
 
 describe('UserService', () => {
   let service: UserService;
-  let mockHttp: HttpClient;
-  let mockLocalStorageService: LocalStorageService;
+  const mockHttp: HttpClient = null;
+  const mockLocalStorageService: LocalStorageService = null;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
@@ -17,12 +17,12 @@ describe('UserService', () => {
   });
 
   it('should return users data', () => {
-    let mockResponse = [
+    const mockResponse = [
       {
-        userName: 'Deepak',
+        userName: 'nagp',
         password: 'Nagp@123',
-        level: 'silver',
-        name: 'Deepak Bisht',
+        level: 'Diamond',
+        name: 'NAGP USER',
       },
     ];
     let response;

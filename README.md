@@ -6,22 +6,41 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+#### Basic Info get started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+UserDetails:
+username: Maninder
+password: Nagp@123
+Other users in file: https://github.com/mani875/apnaBazar/blob/main/src/assets/api/users.json
 
-## Build
+#### About
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Apna Bazar is e-commerce web app which is based on Angular.
+This project leverage basic concepts of Angular such as:
 
-## Running unit tests
+1. Routing without reloading.
+2. Inter-Component Communication.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This app uses internal data files in json format for simulation of database.
 
-## Running end-to-end tests
+Linting is properly used
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Good to have/ Bonus points:
 
-## Further help
+1. Category tree is used on product page where user can search product on the basis of categories.
+2. Translations are provided that are English and Hindi.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Features:
+1:Cart is successfully restored in re-login.
+2:Quantity wise deletion is on cart page if user makes quantity zero than product automatically gets deleted from cart.
+3:Whole app is on SPA(Single Page Application).
+
+Links:
+Github link :https://github.com/mani875/apnaBazar
+Website Link:https://optimistic-keller-b741bb.netlify.app/
+note:If you are facing any error Page Not Found please click on "Back to our site". It will redirect you to the our site its a netlify problem.
+
+Assumptions:
+
+1. Quantity wise deletion is provided on the cart page
+2. User is already registered.
